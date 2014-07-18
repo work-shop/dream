@@ -17,62 +17,53 @@ add_action( 'init', 'register_my_menus');
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
 
-	register_post_type( 'project',
+	register_post_type( 'dreams',
 		array(
 			'labels' => array(
-				'name' => 'Projects',
-				'singular_name' =>'Project',
+				'name' => 'dreams',
+				'singular_name' =>'Dream',
 				'add_new' => 'Add New',
-			    'add_new_item' => 'Add New Project',
-			    'edit_item' => 'Edit Project',
-			    'new_item' => 'New Project',
-			    'all_items' => 'All Projects',
-			    'view_item' => 'View Project',
-			    'search_items' => 'Search Projects',
-			    'not_found' =>  'No Projects found',
-			    'not_found_in_trash' => 'No Projects found in Trash', 				
+			    'add_new_item' => 'Add New Dream',
+			    'edit_item' => 'Edit Dream',
+			    'new_item' => 'New Dream',
+			    'all_items' => 'All Dreams',
+			    'view_item' => 'View Dream',
+			    'search_items' => 'Search Dreams',
+			    'not_found' =>  'No Dreams found',
+			    'not_found_in_trash' => 'No Dreams found in Trash', 				
 			),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'projects'),
+			'rewrite' => array('slug' => 'dreams'),
 			'supports' => array( 'title', 'editor','thumbnail'),
 			'taxonomies' => array('post_tag')			
 		)
 	);	
+	
+	register_post_type( 'interactions',
+		array(
+			'labels' => array(
+				'name' => 'dreams',
+				'singular_name' =>'Interaction',
+				'add_new' => 'Add New',
+			    'add_new_item' => 'Add New Interaction',
+			    'edit_item' => 'Edit Interaction',
+			    'new_item' => 'New Interaction',
+			    'all_items' => 'All Interactions',
+			    'view_item' => 'View Interaction',
+			    'search_items' => 'Search Interactions',
+			    'not_found' =>  'No Interactions found',
+			    'not_found_in_trash' => 'No Interactions found in Trash', 				
+			),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'interactions'),
+			'supports' => array( 'title', 'editor','thumbnail'),
+			'taxonomies' => array('post_tag')			
+		)
+	);		
 
 }
-
-function custom_taxonomy()  {
-
-	$labels = array(
-		'name'                       => _x( 'Project Categories', 'Taxonomy General Name', 'text_domain' ),
-		'singular_name'              => _x( 'Project Category', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Project Category', 'text_domain' ),
-		'all_items'                  => __( 'All Project Categories', 'text_domain' ),
-		'parent_item'                => __( 'Parent Project Category', 'text_domain' ),
-		'parent_item_colon'          => __( 'Parent Project Category:', 'text_domain' ),
-		'new_item_name'              => __( 'New Project Category Name', 'text_domain' ),
-		'add_new_item'               => __( 'Add New Project Category', 'text_domain' ),
-		'edit_item'                  => __( 'Edit Project Category', 'text_domain' ),
-		'update_item'                => __( 'Update Project Category', 'text_domain' ),
-		'separate_items_with_commas' => __( 'Separate Project Categories with commas', 'text_domain' ),
-		'search_items'               => __( 'Search Project Categories', 'text_domain' ),
-		'add_or_remove_items'        => __( 'Add or remove Project Categories', 'text_domain' ),
-		'choose_from_most_used'      => __( 'Choose from the most used Project Categories', 'text_domain' ),
-	);
-	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
-	);
-	register_taxonomy( 'project_category', 'project', $args );
-
-}
-add_action( 'init', 'custom_taxonomy', 0 );
 
 
 function theme_styles()  
