@@ -3,6 +3,7 @@ var scrollOffset = 60;
 var minSmallOffset = 240;
 var cw,ch,bh,dh,ch2;
 var headerState = false;
+var headerState2 = true;
 loaded = false;
 opening = false;
 
@@ -23,15 +24,15 @@ jQuery(document).ready(function($) {
 	
 	//m for menu
 	$(document).keypress(function(e) {
-		if(e.which == 77) {
+		if(e.which == 109) {
 			navToggle();
 		}	
 	});
 	
 	//h for header
 	$(document).keypress(function(e) {
-		if(e.which == 72) {
-			navToggle();
+		if(e.which == 104) {
+			headerToggle();
 		}	
 	});	
 	
@@ -92,24 +93,7 @@ $(window).resize(function() {
 $(window).scroll(function(e) { 
 
 	view(); 
-	
-/*
-	ch = $(window).height();
-	st = $(window).scrollTop();
-	
-	if(st > 0 && st <= ch){	
-		blockToggle('#about',$('#about-link'));
-	}
-	else if(st > ch && st <= ch*2){	
-		blockToggle('#nuala',$('#nuala-link'));
-	}	
-	else if(st > ch*2 && st <= ch*3){	
-		blockToggle('#crystal',$('#crystal-link'));
-	}	
-	else{
-		
-	}
-*/ 
+
 
 });//end window.scroll
 
@@ -148,7 +132,13 @@ function blockToggle(_id,_this){
 
 
 function navToggle() {
-	console.log("navToggle()");
+
+	if(!headerState2){
+		$('#header').removeClass('hidden');
+		$('#header').addClass('visible');
+		headerState2 = true;	
+	}	
+	
 	if(!headerState){
 		$('#header').removeClass('closed');
 		$('#header').addClass('open');
@@ -172,10 +162,24 @@ function navToggle() {
 }
 
 
+function headerToggle() {
+	if(!headerState2){
+		$('#header').removeClass('hidden');
+		$('#header').addClass('visible');
+		headerState2 = true;
+		
+	}
+	else if (headerState2) {
+		$('#header').removeClass('visible');
+		$('#header').addClass('hidden');
+		headerState2 = false;							
+	}
+	
+}
+
+
 function view(){
-	
-	//spy();
-	
+		
 	ch = $(window).height();
 	cw = $(window).width();
 	

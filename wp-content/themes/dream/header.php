@@ -47,6 +47,8 @@
 
 <body <?php body_class('before header-closed'); ?>>
 
+	<div id="background"></div>
+
 	<header id="header" class="closed">
 	
 		<div class="container">
@@ -62,7 +64,7 @@
 				</div>
 			</div>
 			
-			<nav class="row header-nav">
+			<nav class="row header-nav" id="nav">
 				<div id="blanket"></div>
 				<?php get_template_part('nav'); ?>			
 			</nav>
@@ -70,5 +72,7 @@
 		</div>		
 
 	</header>
+	
+	<div id="headerfix"></div>
 		
 	<div id="content">
