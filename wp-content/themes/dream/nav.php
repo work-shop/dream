@@ -31,8 +31,8 @@
 		<div class="col-sm-2">
 		<?php 
 			$args = array(
-			'post_type' => 'project',
-			'project_category' => 'civic-institutional',
+			'post_type' => 'interaction',
+			'interaction-category' => 'scrolling',
 			'posts_per_page' => '-1'
 			);
 			$nav_query = new WP_Query( $args );
