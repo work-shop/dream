@@ -62,7 +62,7 @@
 			
 			<nav class="row header-nav">
 				<div id="blanket"></div>
-				<?php get_template_part('engine-nav'); ?>			
+				<?php get_template_part('nav'); ?>			
 			</nav>
 			
 		</div>		
