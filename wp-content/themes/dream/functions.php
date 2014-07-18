@@ -20,7 +20,7 @@ function create_post_type() {
 	register_post_type( 'dreams',
 		array(
 			'labels' => array(
-				'name' => 'dreams',
+				'name' => 'Dreams',
 				'singular_name' =>'Dream',
 				'add_new' => 'Add New',
 			    'add_new_item' => 'Add New Dream',
@@ -35,7 +35,7 @@ function create_post_type() {
 			'public' => true,
 			'has_archive' => true,
 			'rewrite' => array('slug' => 'dreams'),
-			'supports' => array( 'title', 'editor','thumbnail'),
+			'supports' => array( 'title', 'editor', 'thumbnail' ),
 			'taxonomies' => array('post_tag')			
 		)
 	);	
@@ -43,7 +43,7 @@ function create_post_type() {
 	register_post_type( 'interactions',
 		array(
 			'labels' => array(
-				'name' => 'dreams',
+				'name' => 'Interactions',
 				'singular_name' =>'Interaction',
 				'add_new' => 'Add New',
 			    'add_new_item' => 'Add New Interaction',
