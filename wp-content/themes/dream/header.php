@@ -45,19 +45,21 @@
 			
 </head>
 
-<body <?php body_class('before menu-closed'); ?>>
+<body <?php body_class('before header-closed'); ?>>
 
 	<header id="header">
 	
 		<div class="container">
 		
 			<div class="row header-top">
-				<div class="left">
+				<div class="left col-sm-9">
 					<h3 class="page-title"><?php the_title(); ?></h3>
 				</div>
-				<a id="nav-toggle" href="#" class="right">
-					menu<span class="icon" data-icon="x"></span>
-				</a>
+				<div class="col-sm-3 right">
+					<a id="nav-toggle" class="right" href="#">
+						<span class="icon" data-icon="&Egrave;"></span>
+					</a>
+				</div>
 			</div>
 			
 			<nav class="row header-nav">
