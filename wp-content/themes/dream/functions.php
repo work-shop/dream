@@ -224,9 +224,6 @@ function remove_acf_menu(){
 add_action( 'admin_menu', 'remove_acf_menu', 999 );
 
 
-add_filter('gettext', 'rename_admin_menu_items');
-add_filter('ngettext', 'rename_admin_menu_items');
-
 show_admin_bar(false);
 
 
