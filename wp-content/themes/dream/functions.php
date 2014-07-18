@@ -35,8 +35,7 @@ function create_post_type() {
 			'public' => true,
 			'has_archive' => true,
 			'rewrite' => array('slug' => 'dreams'),
-			'supports' => array( 'title', 'editor', 'thumbnail' ),
-			'taxonomies' => array('post_tag')			
+			'supports' => array( 'title', 'editor', 'thumbnail' )
 		)
 	);	
 	
@@ -58,8 +57,7 @@ function create_post_type() {
 			'public' => true,
 			'has_archive' => true,
 			'rewrite' => array('slug' => 'interactions'),
-			'supports' => array( 'title', 'editor','thumbnail'),
-			'taxonomies' => array('post_tag')			
+			'supports' => array( 'title', 'editor')
 		)
 	);		
 
