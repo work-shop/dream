@@ -1,0 +1,253 @@
+/********** @ANIMATIONS *********/
+#l1 {
+  animation: fader 15s ease 6s 3;
+  -ms-animation: fader 15s ease 6s 3;
+  -webkit-animation: fader 15s ease 6s 3;
+  -0-animation: move fader 15s ease 6s 3;
+  -moz-animation: move fader 15s ease 6s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l2 {
+  animation: fader 15s ease 14s 3;
+  -ms-animation: fader 15s ease 14s 3;
+  -webkit-animation: fader 15s ease 14s 3;
+  -0-animation: move fader 15s ease 14s 3;
+  -moz-animation: move fader 15s ease 14s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l3 {
+  animation: fader 15s ease 21s 3;
+  -ms-animation: fader 15s ease 21s 3;
+  -webkit-animation: fader 15s ease 21s 3;
+  -0-animation: move fader 15s ease 21s 3;
+  -moz-animation: move fader 15s ease 21s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l4 {
+  animation: fader 15s ease 1s 3;
+  -ms-animation: fader 15s ease 1s 3;
+  -webkit-animation: fader 15s ease 1s 3;
+  -0-animation: move fader 15s ease 1s 3;
+  -moz-animation: move fader 15s ease 1s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l5 {
+  animation: fader 15s ease 7s 3;
+  -ms-animation: fader 15s ease 7s 3;
+  -webkit-animation: fader 15s ease 7s 3;
+  -0-animation: move fader 15s ease 7s 3;
+  -moz-animation: move fader 15s ease 7s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l6 {
+  animation: fader 15s ease 15s 3;
+  -ms-animation: fader 15s ease 15s 3;
+  -webkit-animation: fader 15s ease 15s 3;
+  -0-animation: move fader 15s ease 15s 3;
+  -moz-animation: move fader 15s ease 15s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l7 {
+  animation: fader 15s ease 2s 3;
+  -ms-animation: fader 15s ease 2s 3;
+  -webkit-animation: fader 15s ease 2s 3;
+  -0-animation: move fader 15s ease 2s 3;
+  -moz-animation: move fader 15s ease 2s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l8 {
+  animation: fader 15s ease 18s 3;
+  -ms-animation: fader 15s ease 18s 3;
+  -webkit-animation: fader 15s ease 18s 3;
+  -0-animation: move fader 15s ease 18s 3;
+  -moz-animation: move fader 15s ease 18s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l9 {
+  animation: fader 15s ease 3s 3;
+  -ms-animation: fader 15s ease 3s 3;
+  -webkit-animation: fader 15s ease 3s 3;
+  -0-animation: move fader 15s ease 3s 3;
+  -moz-animation: move fader 15s ease 3s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l10 {
+  animation: fader 15s ease 26s 3;
+  -ms-animation: fader 15s ease 26s 3;
+  -webkit-animation: fader 15s ease 26s 3;
+  -0-animation: move fader 15s ease 26s 3;
+  -moz-animation: move fader 15s ease 26s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l11 {
+  animation: fader 15s ease 4s 3;
+  -ms-animation: fader 15s ease 4s 3;
+  -webkit-animation: fader 15s ease 4s 3;
+  -0-animation: move fader 15s ease 4s 3;
+  -moz-animation: move fader 15s ease 4s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l12 {
+  animation: fader 15s ease 0s 3;
+  -ms-animation: fader 15s ease 0s 3;
+  -webkit-animation: fader 15s ease 0s 3;
+  -0-animation: move fader 15s ease 0s 3;
+  -moz-animation: move fader 15s ease 0s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l13 {
+  animation: fader 15s ease 1s 3;
+  -ms-animation: fader 15s ease 1s 3;
+  -webkit-animation: fader 15s ease 1s 3;
+  -0-animation: move fader 15s ease 1s 3;
+  -moz-animation: move fader 15s ease 1s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l14 {
+  animation: fader 15s ease 17s 3;
+  -ms-animation: fader 15s ease 17s 3;
+  -webkit-animation: fader 15s ease 17s 3;
+  -0-animation: move fader 15s ease 17s 3;
+  -moz-animation: move fader 15s ease 17s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l15 {
+  animation: fader 15s ease 9s 3;
+  -ms-animation: fader 15s ease 9s 3;
+  -webkit-animation: fader 15s ease 9s 3;
+  -0-animation: move fader 15s ease 9s 3;
+  -moz-animation: move fader 15s ease 9s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l16 {
+  animation: fader 15s ease 12s 3;
+  -ms-animation: fader 15s ease 12s 3;
+  -webkit-animation: fader 15s ease 12s 3;
+  -0-animation: move fader 15s ease 12s 3;
+  -moz-animation: move fader 15s ease 12s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l17 {
+  animation: fader 15s ease 2s 3;
+  -ms-animation: fader 15s ease 2s 3;
+  -webkit-animation: fader 15s ease 2s 3;
+  -0-animation: move fader 15s ease 2s 3;
+  -moz-animation: move fader 15s ease 2s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l18 {
+  animation: fader 15s ease 13s 3;
+  -ms-animation: fader 15s ease 13s 3;
+  -webkit-animation: fader 15s ease 13s 3;
+  -0-animation: move fader 15s ease 13s 3;
+  -moz-animation: move fader 15s ease 13s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l19 {
+  animation: fader 15s ease 2s 3;
+  -ms-animation: fader 15s ease 2s 3;
+  -webkit-animation: fader 15s ease 2s 3;
+  -0-animation: move fader 15s ease 2s 3;
+  -moz-animation: move fader 15s ease 2s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l20 {
+  animation: fader 15s ease 16s 3;
+  -ms-animation: fader 15s ease 16s 3;
+  -webkit-animation: fader 15s ease 16s 3;
+  -0-animation: move fader 15s ease 16s 3;
+  -moz-animation: move fader 15s ease 16s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l21 {
+  animation: fader 15s ease 6s 3;
+  -ms-animation: fader 15s ease 6s 3;
+  -webkit-animation: fader 15s ease 6s 3;
+  -0-animation: move fader 15s ease 6s 3;
+  -moz-animation: move fader 15s ease 6s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l22 {
+  animation: fader 15s ease 12s 3;
+  -ms-animation: fader 15s ease 12s 3;
+  -webkit-animation: fader 15s ease 12s 3;
+  -0-animation: move fader 15s ease 12s 3;
+  -moz-animation: move fader 15s ease 12s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l23 {
+  animation: fader 15s ease 8s 3;
+  -ms-animation: fader 15s ease 8s 3;
+  -webkit-animation: fader 15s ease 8s 3;
+  -0-animation: move fader 15s ease 8s 3;
+  -moz-animation: move fader 15s ease 8s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l24 {
+  animation: fader 15s ease 0s 3;
+  -ms-animation: fader 15s ease 0s 3;
+  -webkit-animation: fader 15s ease 0s 3;
+  -0-animation: move fader 15s ease 0s 3;
+  -moz-animation: move fader 15s ease 0s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l25 {
+  animation: fader 15s ease 18s 3;
+  -ms-animation: fader 15s ease 18s 3;
+  -webkit-animation: fader 15s ease 18s 3;
+  -0-animation: move fader 15s ease 18s 3;
+  -moz-animation: move fader 15s ease 18s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+#l26 {
+  animation: fader 15s ease 0s 3;
+  -ms-animation: fader 15s ease 0s 3;
+  -webkit-animation: fader 15s ease 0s 3;
+  -0-animation: move fader 15s ease 0s 3;
+  -moz-animation: move fader 15s ease 0s 3;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+@-webkit-keyframes fader {
+  0% {
+    opacity: .25;
+    color: #d7d7d7;
+  }
+  33% {
+    opacity: 1;
+    color: white;
+  }
+  66% {
+    opacity: .25;
+    color: #d7d7d7;
+  }
+  100% {
+    opacity: 1;
+    color: white;
+  }
+}
