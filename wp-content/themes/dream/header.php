@@ -47,7 +47,7 @@
 
 <body <?php body_class('before header-closed'); ?>>
 
-	<header id="header">
+	<header id="header" class="closed">
 	
 		<div class="container">
 		
