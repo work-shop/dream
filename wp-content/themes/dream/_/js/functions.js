@@ -18,22 +18,22 @@ jQuery(document).ready(function($) {
 
 	$('#nav-toggle').click(function(event) {
 	  	event.preventDefault();
-	  	console.log('#nav-toggle clicked');
 		navToggle();
 	});
-
 	
-	$('.nav-toggle-projects').click(function(event) {
-	  	event.preventDefault();
-	  	navToggle();
-	});	
-	
-	
+	//m for menu
 	$(document).keypress(function(e) {
-		if(e.which == 109 || e.which == 77) {
+		if(e.which == 77) {
 			navToggle();
 		}	
 	});
+	
+	//h for header
+	$(document).keypress(function(e) {
+		if(e.which == 72) {
+			navToggle();
+		}	
+	});	
 	
 	$(".jump").click(function(e){
 		e.preventDefault();
@@ -154,7 +154,6 @@ function navToggle() {
 		$('#header').addClass('open');
 		$('body').removeClass('header-closed');
 		$('body').addClass('header-open');	
-		$('#toggle-help').html('type m to close menu');
 		$('#blanket').addClass('on');
 
 		headerState = true;
@@ -165,9 +164,7 @@ function navToggle() {
 		$('#header').addClass('closed');
 		$('body').removeClass('header-open');
 		$('body').addClass('header-closed');
-		$('#toggle-help').html('type m for menu');
 		$('#blanket').removeClass('on');
-		$('#header').scrollTop(0);
 		headerState = false;
 									
 	}

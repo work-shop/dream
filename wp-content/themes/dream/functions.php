@@ -196,7 +196,7 @@ function get_template_parts( $parts = array() ) {
 
 function remove_menus () {
 global $menu;
-	$restricted = array( __('Comments'),/* __('Plugins'),__ */('Appearance') );
+	$restricted = array( __('Comments'), __('Posts'),__ ('Appearance') );
 	end ($menu);
 	while (prev($menu)){
 		$value = explode(' ',$menu[key($menu)][0]);
@@ -226,14 +226,6 @@ add_action( 'admin_menu', 'remove_acf_menu', 999 );
 
 add_filter('gettext', 'rename_admin_menu_items');
 add_filter('ngettext', 'rename_admin_menu_items');
-
-function rename_admin_menu_items( $menu ) {
-	
-	$menu = str_ireplace( 'Posts', 'Blog', $menu );
-	
-	return $menu;
-}
-
 
 show_admin_bar(false);
 
