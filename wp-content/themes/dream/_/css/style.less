@@ -258,6 +258,10 @@ body{
 	font-weight: 700;	
 }
 
+.italic{
+	font-style: italic;
+}
+
 a{
 	color: darken(@brand,80%);
 	
@@ -269,12 +273,12 @@ a{
 }
 
 .serif{
-	//font-family: @font-family-serif;
+	font-family: georgia,serif;
 	line-height: 1.7;
 	font-size: 19px;
 	
 	p,a{
-		//font-family: @font-family-serif;
+	font-family: georgia,serif;
 		line-height: 1.7;
 		font-size: 19px;	
 	}
@@ -357,7 +361,7 @@ h5,h6{
 	top: 0%;
 	width: 100%;
 	height: 100%;
-	z-index: 0;
+	z-index: -1;
 	overflow: hidden;
 	background-image: url('../img/background5.jpg');
 	background-size: cover;	
@@ -371,6 +375,11 @@ h5,h6{
 	position: fixed;
 	width: 100%;
 	z-index: 999;
+	opacity: .25;
+	
+	&:hover{
+		opacity: 1;
+	}
 	
 	
 	&.closed{
@@ -379,7 +388,7 @@ h5,h6{
 	
 	&.open{
 		min-height: 400px;
-		
+		opacity: 1;
 		
 		#nav-toggle{
 			.icon:before{
@@ -401,6 +410,11 @@ h5,h6{
 
 #headerfix{
 	height: 50px;
+}
+
+#content{
+	position: relative;
+	z-index: 1;
 }
 
 #nav{
@@ -432,6 +446,37 @@ h5,h6{
 }
 
 
+
+
+/********** @DREAMS *********/
+
+
+.dream{
+	padding: 100px 0 200px 0;
+	position: relative;
+}
+
+.dream-header{
+	
+	h2,h3{
+		text-align: center;
+	}
+}
+
+.dream-body{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.dream-gallery{
+	position: absolute;
+	top: -50px;
+	left: 0;
+	z-index: -1;
+}
+
+
+/********** @RESPONSIVE *********/
 
 //1200px
 @media (max-width: 1200px) {
