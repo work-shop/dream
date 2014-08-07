@@ -39,7 +39,15 @@
     <!--[if lt IE 9]>
       <script src="<?php bloginfo('template_directory'); ?>/_/js/html5shiv.js"></script>
       <script src="<?php bloginfo('template_directory'); ?>/_/js/respond.js"></script>
-    <![endif]-->		
+    <![endif]-->	
+
+
+    <?php
+
+// script tag query
+
+    ?>
+
     	
 	<?php wp_head(); ?>
 			
