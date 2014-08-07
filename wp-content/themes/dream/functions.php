@@ -236,6 +236,34 @@ function be_hidden_meta_boxes($hidden, $screen) {
 
 
 
+function interactions_relationship( $html, $post ) {
+	$terms = wp_get_post_terms( $post->ID, 'interaction_type' );
+	
+	if ( $terms ) {
+
+		//$html .= '<h3>'. $terms .'</h3>';
+
+	}
+
+	return $html;
+
+}
+
+
+
+
+
+add_filter(
+	'acf/fields/relationship/result/name=interaction', 
+	'interactions_relationship', 
+	10, 
+	2
+);
+
+
+
+
+
 
 define('MAGPIE_FETCH_TIME_OUT', 180);
 
