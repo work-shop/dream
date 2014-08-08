@@ -92,8 +92,6 @@ $(window).resize(function() {
 
 $(window).scroll(function(e) { 
 
-	view(); 
-
 
 });//end window.scroll
 
@@ -188,7 +186,7 @@ function view(){
 	if(!loaded){
 		loadElements();
 	}
-			
+				
 }
 
 
@@ -222,5 +220,39 @@ function loadElements(){
 		view();
 	},1000);		
 		
+}
+
+function parallax(){
+
+/*
+	var body = $('body');
+	var pElement = $('.dream-gallery');
+	
+	var pTravel = 50;
+	var pRatio = pTravel/75;
+	
+	var docH = $(document).height();
+	
+	var winH = $(window).height();
+	
+	var pH = docH - winH;
+	
+	var pBody = body.scrollTop();
+
+	var pScroll = (pBody / pH) * 100;
+				
+	var pNumTemp = 1*(pScroll*pRatio);
+	var pNumTemp2 = ((pScroll*pRatio)/1);	
+	var pNum2 = 'blur(' + pNumTemp2 + 'px)';	
+	var pNum = pNumTemp + '%';
+	
+	//pElement.css('-webkit-filter', pNum2 );	
+	pElement.css('left', pNum );
+	pElement.css('top', pNum );
+
+	//requestAnimationFrame(parallax); 
+*/
+
+
 }
 
