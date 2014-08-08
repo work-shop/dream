@@ -34,14 +34,9 @@
 		links: [jQuery.fn.init]					contains references to all the <a> tags objects in the context as jQuery objects
 		lettering: [jQuery.fn.init]				contains references to all the <q> tags in the content as jQuery objects
 												these represent individual letters
-
-		fn: {
-	
-			random( n : int ) -> int 			returns a random int scaled by n						
-
-
-		}
 	}
+	
+
 */
 
 // wait for the 'preprocessed' event, then execute the interaction,
@@ -49,9 +44,10 @@
 $(document).on('preprocessed', function( evt, dream ) {
 
 
-
-
-
-	// your dream interaction code here...
-
 });
+
+
+
+
+
+
