@@ -53,11 +53,41 @@ $(document).on('preprocessed', function( evt, dream ) {
 				   // which we will use to index the one dimensional array of 
 				   // of characters as a 2D array interpreted as the position of the neighbors.
 
-	var O_factor = .9 // this represents the dropoff factor as we drift from the point of click.
+	var O_factor = .9; // this represents the dropoff factor as we drift from the point of click.
+	var ring_size = 8;
+
+	// : int -> int -> int // takes paragraph and area indices to 2D array coordinates based on a character width estimate.
+	function mk1D( i, j ) { 
+
+	}
 
 
-	function mk1D( i, j ) { }
-	function mk2D( i ) { }
+	function make2D( i, j ) {
+		return {
+			i: ( Math.floor( dream.lettering[ i ].length / j ) ),
+			j: dream.lettering[ i ].length % j
+		}
+	} 
+
+	function locate2d( i, j ) { 
+		var x_1d = (i * P_ll) + j;
+		
+	}
+
+	function ring( i, j, r ) {
+		var retT = [],
+			retL = [],
+			retB = [],
+			retR = [];
+
+			for ( var n = -r; n <= r; n++ ) {
+					retT.push( locate2D( i + r, j + n ) );
+					retL.push( locate2D( i + n, j - r ) );
+					retB.push( locate2D( i - r, j + n ) );
+					retR.push( locate2D( i + n, j + r ) );
+			}		
+			return retT.concat( retL ).concat( retB ).concat( retR );
+	}
 
 
 	for ( var i in dream.lettering ) {
@@ -65,16 +95,13 @@ $(document).on('preprocessed', function( evt, dream ) {
 			/*
 				## some logic... 
 				we have access to both the current object, and its index position in the 
-				lettering permutation. we should work off of the 
+				lettering permutation. we should work off of the an assumed line length, and
+				allow for variance to propagate accross
 
 
 
 			*/
 			dream.lettering[ i ][ j ].bind( 'click', function( e ) {
-
-				
-
-
 
 			});
 
@@ -82,6 +109,17 @@ $(document).on('preprocessed', function( evt, dream ) {
 	}
 
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
