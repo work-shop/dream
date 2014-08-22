@@ -56,19 +56,19 @@
 		$dream_drawing_title = get_field('dream_drawing_title', $id );
 
 		// percentages, ie 0 <= x <= 100
-		$minX	= 20;
+		$minX	= 10;
 		$minY	= 5;
 		$maxX	= 80;
-		$maxY	= 50;
+		$maxY	= 90;
 
 		$scale_factor = 15;
 
 		if ( $dream_length != 0 ) {
 			//$dim 	= (100 / $dream_length) * $scale_factor;
-			$dim 	= rand(10,25);
+			$dim 	= rand(8,20);
 
 		} else {
-			$dim 	= rand(10,25);
+			$dim 	= rand(8,20);
 		}
 		
 		$top 	= rand( $minY,$maxY );
