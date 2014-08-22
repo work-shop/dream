@@ -50,7 +50,7 @@
 
 	<div id="background"></div>
 
-	<header id="header" class="closed">
+	<header id="header" class="closed hidden">
 	
 		<div class="container">
 		
