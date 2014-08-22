@@ -4,7 +4,7 @@
 <section id="home" class="block crop">
 	<div id="dreams">
 	
-	<article class="dream" width="" height="" top="" left="">
+	<article class="dream" style="width:200px; height:200px; top:30%; left:30%;">
 
 		<div class="drawing">
 			<img src="http://localhost:8888/dream/wp-content/uploads/2014/08/test.jpg" alt="drawing1" />
@@ -13,8 +13,8 @@
 		<div class="info">
 
 			<hgroup class="title">
-				<h2 class="dream-title">Fennel</h2>
 				<h3 class="dream-number">Dream No. 731,456</h3>
+				<h2 class="dream-title">Fennel</h2>				
 			</hgroup>
 
 			<hgroup class="metadata">

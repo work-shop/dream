@@ -50,27 +50,26 @@
 
 	<div id="background"></div>
 
-	<header id="header" class="closed hidden">
-	
-		<div class="container">
+	<header id="header" class="closed">
+
+		<div id="nav-toggle" class="off">
+			<img src="<?php bloginfo('template_directory'); ?>/_/img/toggle.png" alt="menu-toggle-icon" />
+		</div>
 		
-			<div class="row header-top">
-				<div class="left col-sm-9">
-					<h3 class="page-title"><?php the_title(); ?></h3>
-				</div>
-				<div class="col-sm-3 right">
-					<a id="nav-toggle" class="right" href="#">
-						<span class="icon" data-icon="&Egrave;"></span>
-					</a>
-				</div>
-			</div>
+		<nav id="nav">
+			<h1 id="site-title">
+			A Dream for<br/>
+			the Drawing<br/>
+			of Everything
+			</h1>
 			
-			<nav class="row header-nav" id="nav">
-				<div id="blanket"></div>
-				<?php get_template_part('nav'); ?>			
-			</nav>
-			
-		</div>		
+			<ul>
+				<li><a href="#">about</a></li>
+				<li><a href="#">contact</a></li>
+				<li><a href="#">famous dreams</a></li>
+			</ul>
+		
+		</nav>
 
 	</header>
 	
