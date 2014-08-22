@@ -6,12 +6,17 @@
 	function str_format( $dim, $top, $left ) {
 		return 'position:absolute; width: '.$dim.'%; height:'.$dim.'%; top:'.$top.'%; left:'.$left.'%;';
 	}
+
+	function arr_format( $array ) {
+		return 'position:absolute; width: '.$array[0].'%; height:'.$array[0].'%; top:'.$array[1].'%; left:'.$array[2].'%;';
+	}
 	
 ?>
 
 <section id="home" class="block crop">
 	<?php
 
+		$rand = FALSE;
 		$population = 7;
 		srand( $population*rand(0,10000) );
 
@@ -21,6 +26,14 @@
 
 		) );
 
+		$fixed_vals = array(
+				// dimension, top, left
+			array( 10,35,6 ),
+			array( 23,40,40 ),
+			array( 15,5,70 ),
+			array( 40,25,20 ),
+			array( 1,5,3 ),
+		);
 
 		if ( $q->have_posts() ) :	
 
@@ -28,6 +41,8 @@
 
 	<div id="dreams">
 	<?php
+
+	$i = 0;
 
 	while ( $q->have_posts() ) :
 
@@ -46,12 +61,12 @@
 		$maxX	= 80;
 		$maxY	= 50;
 
-		$scale_factor = 5;
+		$scale_factor = 15;
 
 		if ( $dream_length != 0 ) {
 			$dim 	= (100 / $dream_length) * $scale_factor;
 		} else {
-			$dim 	= rand(0,10);
+			$dim 	= rand(0,15);
 		}
 		
 		$top 	= rand( $minY,$maxY );
@@ -60,7 +75,12 @@
 		global $post;
 	?>
 	
-	<article class="dream" style="<?php echo str_format($dim, $top, $left); ?>">
+	<?php if ( $rand ) { ?>
+		<article class="dream" style="<?php echo str_format($dim, $top, $left); ?>">
+	<?php } else { ?>
+		<article class="dream" style="<?php echo arr_format( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
+	<?php } ?>
+
 		<a href="#<?php echo $post->post_name; ?>" >
 
 		<?php if (has_post_thumbnail( $id )) : ?> 	
@@ -90,7 +110,7 @@
 
 	</article>
 
-	<?php endwhile; ?>
+	<?php $i++; endwhile; ?>
 
 	</div>
 

@@ -43,7 +43,12 @@
 			unset( $interaction );
     		unset( $file_name );
 
-    	}
+    	} else {
+
+            echo '<script type="text/javascript" charset="utf-8" lang="javascript" src="'
+                     . get_template_directory_uri() . '/_/js/index.js"></script>';
+
+        }
 
     ?>
 
