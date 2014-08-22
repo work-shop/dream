@@ -46,7 +46,7 @@
 		$maxX	= 80;
 		$maxY	= 50;
 
-		$scale_factor = 5;
+		$scale_factor = 10;
 
 		if ( $dream_length != 0 ) {
 			$dim 	= (100 / $dream_length) * $scale_factor;
@@ -65,7 +65,7 @@
 
 		<?php if (has_post_thumbnail( $id )) : ?> 	
 		<div class="drawing">
-			<?php the_post_thumbnail( $id, 'medium') ?>
+			<?php the_post_thumbnail( $id, 'drawing') ?>
 		</div>
 		<?php endif; ?>
 
