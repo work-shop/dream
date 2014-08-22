@@ -1,37 +1,100 @@
 
 <?php get_header();?>
 
-<section id="home" class="block crop">
-	<div id="dreams">
-	
-	<article class="dream" style="width:200px; height:200px; top:30%; left:30%;">
+<?php
 
+	function str_format( $dim, $top, $left ) {
+		return 'position:absolute; width: '.$dim.'%; height:'.$dim.'%; top:'.$top.'%; left:'.$left.'%;';
+	}
+	
+?>
+
+<section id="home" class="block crop">
+	<?php
+
+		$population = 7;
+		srand( $population*rand(0,10000) );
+
+		$q = new WP_Query( array(
+			'post_type' => 'dreams',
+			'number_posts' => $population
+
+		) );
+
+
+		if ( $q->have_posts() ) :	
+
+	?>
+
+	<div id="dreams">
+	<?php
+
+	while ( $q->have_posts() ) :
+
+		$q->the_post();
+		$id = get_the_ID();
+
+		$dream_length = get_field('dream_length', $id );
+		$dream_author = get_field('dream_author', $id );
+		$dream_number = get_field('dream_number', $id );
+		$dream_date = get_field('dream_date', $id );
+		$dream_drawing_title = get_field('dream_drawing_title', $id );
+
+		// percentages, ie 0 <= x <= 100
+		$minX	= 20;
+		$minY	= 5;
+		$maxX	= 80;
+		$maxY	= 50;
+
+		$scale_factor = 5;
+
+		if ( $dream_length != 0 ) {
+			$dim 	= (100 / $dream_length) * $scale_factor;
+		} else {
+			$dim 	= rand(0,10);
+		}
+		
+		$top 	= rand( $minY,$maxY );
+		$left 	= rand( $minX,$maxY );
+
+
+
+
+	?>
+	
+	<article class="dream" style="<?php echo str_format($dim, $top, $left); ?>">
+		<?php if (has_post_thumbnail( $id )) : ?> 	
 		<div class="drawing">
-			<img src="http://localhost:8888/dream/wp-content/uploads/2014/08/test.jpg" alt="drawing1" />
+			<?php the_post_thumbnail( $id, 'medium') ?>
 		</div>
+		<?php endif; ?>
 
 		<div class="info">
 
 			<hgroup class="title">
-				<h3 class="dream-number">Dream No. 731,456</h3>
-				<h2 class="dream-title">Fennel</h2>				
+				<?php if ( $dream_number ) : ?><h3 class="dream-number"><?php echo $dream_number; ?></h3><?php endif; ?>
+				<h2 class="dream-title"><?php the_title(); ?></h2>
 			</hgroup>
 
 			<hgroup class="metadata">
-				<h4 class="dream-length">342 words</h4>
-				<h4 class="dream-author">Written by Crystal Gandrud</h4>
-				<h4 class="dream-date">12.24.13</h4>
-				<h4 class="dream-drawing-title">Drawing No. 148: Anonymous</h4>
+				<?php if ( $dream_length ) : ?><h4 class="dream-length"><?php echo $dream_length; ?></h4><?php endif; ?>
+				<?php if ( $dream_author ) : ?><h4 class="dream-author"><?php echo $dream_author; ?></h4><?php endif; ?>
+				<?php if ( $dream_date ) : ?><h4 class="dream-date"><?php echo $dream_date; ?></h4><?php endif; ?>
+				<?php if ( $dream_drawing_title ) : ?><h4 class="dream-drawing-title"><?php echo $dream_drawing_title; ?></h4><?php endif; ?>
 			</hgroup>
 
-			<h5 class="excerpt">I eat a fennel salad. I become aware that the Venerable Chogyam Trungpa Rinpoche is watching me eat.</h5>
+			<?php // if ( get_the_field('dream_excerpt', $id ) ) : ?><h5 class="excerpt"><?php // the_field( 'dream_excerpt', $id ); ?></h5><?php // endif; ?>
 			
 		</div>
 
 	</article>
 
+	<?php endwhile; ?>
 
 	</div>
+
+	<?php endif; ?>
+
 </section>
 
 		
