@@ -69,22 +69,25 @@ $(document).on('preprocessed', function( evt, dream ) {
 		}
 	} 
 
-	function locate2d( i, j ) { 
-		var x_1d = (i * P_ll) + j;
+	function locate2d( idx, i, j ) { 
+		var t = (i * P_ll) + j;
+
+		if ( t > dream.lettering[ idx ].length ) 
+
 		
 	}
 
-	function ring( i, j, r ) {
+	function ring( idx, i, j, r ) {
 		var retT = [],
 			retL = [],
 			retB = [],
 			retR = [];
 
 			for ( var n = -r; n <= r; n++ ) {
-					retT.push( locate2D( i + r, j + n ) );
-					retL.push( locate2D( i + n, j - r ) );
-					retB.push( locate2D( i - r, j + n ) );
-					retR.push( locate2D( i + n, j + r ) );
+					if ( (i + r) >= 0 && (j + n) >= 0 ) retT.push( locate2D( idx, i + r, j + n ) );
+					if ( (i + n) >= 0 && (j - r) >= 0 ) retL.push( locate2D( idx, i + n, j - r ) );
+					if ( (i - r) >= 0 && (j + n) >= 0 ) retB.push( locate2D( idx, i - r, j + n ) );
+					if ( (i + n) >= 0 && (j + r) >= 0 ) retR.push( locate2D( idx, i + n, j + r ) );
 			}		
 			return retT.concat( retL ).concat( retB ).concat( retR );
 	}
