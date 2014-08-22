@@ -27,14 +27,12 @@
 	?>
 
 	<div id="dreams">
-	
 	<?php
 
 	while ( $q->have_posts() ) :
 
 		$q->the_post();
 		$id = get_the_ID();
-
 
 		$dream_length = get_field('dream_length', $id );
 		$dream_author = get_field('dream_author', $id );
@@ -63,8 +61,6 @@
 
 
 	?>
-
-	<!-- width heigh top left -->
 	
 	<article class="dream" style="<?php echo str_format($dim, $top, $left); ?>">
 		<?php if (has_post_thumbnail( $id )) : ?> 	
