@@ -13,7 +13,7 @@
 	<?php
 
 		$population = 7;
-		srand( $population*8 );
+		srand( $population*rand(0,10000) );
 
 		$q = new WP_Query( array(
 			'post_type' => 'dreams',
@@ -42,16 +42,16 @@
 
 		// percentages, ie 0 <= x <= 100
 		$minX	= 20;
-		$minY	= 0;
+		$minY	= 5;
 		$maxX	= 80;
-		$maxY	= 25;
+		$maxY	= 50;
 
-		$scale_factor = 10;
+		$scale_factor = 5;
 
 		if ( $dream_length != 0 ) {
 			$dim 	= (100 / $dream_length) * $scale_factor;
 		} else {
-			$dim 	= rand(0,100);
+			$dim 	= rand(0,10);
 		}
 		
 		$top 	= rand( $minY,$maxY );
