@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 	});
 
 
-	$('#nav-toggle').click(function(event) {
+	$('.header-top').click(function(event) {
 	  	event.preventDefault();
 		navToggle();
 	});
@@ -88,12 +88,6 @@ $(window).resize(function() {
 	view();	
 	
 });//end window.resize
-
-
-$(window).scroll(function(e) { 
-
-
-});//end window.scroll
 
 
 function goToByScroll(locale){

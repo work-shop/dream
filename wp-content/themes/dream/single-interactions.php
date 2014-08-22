@@ -62,16 +62,19 @@ else{
 			$images = get_field('dream_gallery',$dream_id);
 			if( $images ): ?>
 					
-			<div class="dream-gallery <?php if(count($images) > 1): echo 'multiple'; endif; ?>">
+			<div class="dream-gallery <?php if(count($images) > 1): echo 'multiple'; endif; ?>" >
 					<ul class="dream-images">
-					
-						<li class="dream-image">
-							<?php foreach( $images as $image ): ?>
-							 <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-							 <?php endforeach; ?>
-						</li>
-					
+						<?php foreach( $images as $image ): ?>
+							<li class="dream-image parallaxContainer" id="parallaxContainer">
+								 <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+							</li>
+						<?php endforeach; ?>
+			
 					</ul>
+						
+					<?php foreach( $images as $image ): ?>
+					 	<img class="dream-image hidden" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+					 <?php endforeach; ?>						
 				
 				</div>	
 					
@@ -79,7 +82,7 @@ else{
 					
 			<?php endif; ?>
 			
-			<div class="dream-text">
+			<div class="dream-text" id="parallaxContainer2">
 				<div class="container">
 					<div class="row">			
 				
