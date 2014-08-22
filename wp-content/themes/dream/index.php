@@ -1,17 +1,28 @@
 
 <?php get_header();?>
 
+<?php
+
+	function str_format( $dim, $top, $left ) {
+		return 'position:absolute; width: '.$dim.'%; height:'.$dim.'%; top:'.$top.'%; left:'.$left.'%;';
+	}
+	
+?>
+
 <section id="home" class="block crop">
 	<?php
+
+		$population = 7;
+		srand( $population*8 );
+
 		$q = new WP_Query( array(
 			'post_type' => 'dreams',
-			...
+			'number_posts' => $population
+
 		) );
 
 
-		if ( $q->have_posts() ) :
-
-		
+		if ( $q->have_posts() ) :	
 
 	?>
 
@@ -19,38 +30,64 @@
 	
 	<?php
 
+	while ( $q->have_posts() ) :
+
+		$q->the_post();
+		$id = get_the_ID();
 
 
-		while ( $q->have_posts() ) {
+		$dream_length = get_field('dream_length', $id );
+		$dream_author = get_field('dream_author', $id );
+		$dream_number = get_field('dream_number', $id );
+		$dream_date = get_field('dream_date', $id );
+		$dream_drawing_title = get_field('dream_drawing_title', $id );
 
-			$q->the_post();
-			$id = get_the_ID();
+		// percentages, ie 0 <= x <= 100
+		$minX	= 20;
+		$minY	= 0;
+		$maxX	= 80;
+		$maxY	= 25;
+
+		$scale_factor = 10;
+
+		if ( $dream_length != 0 ) {
+			$dim 	= (100 / $dream_length) * $scale_factor;
+		} else {
+			$dim 	= rand(0,100);
+		}
+		
+		$top 	= rand( $minY,$maxY );
+		$left 	= rand( $minX,$maxY );
+
+
+
 
 	?>
 
-	<?php?>
-
-	<article class="dream">
-
+	<!-- width heigh top left -->
+	
+	<article class="dream" style="<?php echo str_format($dim, $top, $left); ?>">
+		<?php if (has_post_thumbnail( $id )) : ?> 	
 		<div class="drawing">
-			<img src="<?php echo ...img_url...; ?>" />
+			<?php the_post_thumbnail( $id, 'medium') ?>
 		</div>
+		<?php endif; ?>
 
 		<div class="info">
 
 			<hgroup class="title">
+				<?php if ( $dream_number ) : ?><h3 class="dream-number"><?php echo $dream_number; ?></h3><?php endif; ?>
 				<h2 class="dream-title"><?php the_title(); ?></h2>
-				<?php if ( get_the_field('number', $id ) ) : ?><h3 class="dream-number"><?php the_field( 'number', $id ); ?></h3><?php endif; ?>
 			</hgroup>
 
 			<hgroup class="metadata">
-				<?php if ( get_the_field('dream_length', $id ) ) : ?><h4 class="dream-length"><?php the_field( 'dream_length', $id ); ?></h4><?php endif; ?>
-				<h4 class="dream-author"></h4>
-				<h4 class="dream-date"></h4>
-				<h4 class="dream-drawing-title"></h4>
+				<?php if ( $dream_length ) : ?><h4 class="dream-length"><?php echo $dream_length; ?></h4><?php endif; ?>
+				<?php if ( $dream_author ) : ?><h4 class="dream-author"><?php echo $dream_author; ?></h4><?php endif; ?>
+				<?php if ( $dream_date ) : ?><h4 class="dream-date"><?php echo $dream_date; ?></h4><?php endif; ?>
+				<?php if ( $dream_drawing_title ) : ?><h4 class="dream-drawing-title"><?php echo $dream_drawing_title; ?></h4><?php endif; ?>
 			</hgroup>
 
-			<h5 class="excerpt"></h5>
+			<?php // if ( get_the_field('dream_excerpt', $id ) ) : ?><h5 class="excerpt"><?php // the_field( 'dream_excerpt', $id ); ?></h5><?php // endif; ?>
 			
 		</div>
 
