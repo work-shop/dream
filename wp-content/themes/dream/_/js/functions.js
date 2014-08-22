@@ -22,6 +22,11 @@ jQuery(document).ready(function($) {
 		navToggle();
 	});
 	
+	$('#site-title').click(function(event) {
+	  	event.preventDefault();
+		navToggle();
+	});	
+	
 	//m for menu
 	$(document).keypress(function(e) {
 		if(e.which == 109) {
