@@ -57,12 +57,12 @@
 		$top 	= rand( $minY,$maxY );
 		$left 	= rand( $minX,$maxY );
 
-
-
-
+		global $post;
 	?>
 	
 	<article class="dream" style="<?php echo str_format($dim, $top, $left); ?>">
+		<a href="#<?php echo $post->post_name; ?>" >
+
 		<?php if (has_post_thumbnail( $id )) : ?> 	
 		<div class="drawing">
 			<?php the_post_thumbnail( $id, 'medium') ?>
@@ -86,6 +86,7 @@
 			<?php // if ( get_the_field('dream_excerpt', $id ) ) : ?><h5 class="excerpt"><?php // the_field( 'dream_excerpt', $id ); ?></h5><?php // endif; ?>
 			
 		</div>
+		</a>
 
 	</article>
 
