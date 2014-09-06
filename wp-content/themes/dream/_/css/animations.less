@@ -20,14 +20,16 @@
 
 .orbiting{
 	 .dream-drawing{
-		//.animation(orbit, 8s, linear, 1s, infinite);
+		.animation(orbit, 12s, linear, 4s, infinite);
 	}
 	
 }
 
-.dream:hover{
-	 -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
-	 animation-play-state: paused;
+.dream-inner:hover{
+	.dream-drawing{
+		 -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
+		 animation-play-state: paused;
+	}
 }
 
 .dream-active .dream{

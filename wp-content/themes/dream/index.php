@@ -21,7 +21,7 @@
 	<?php
 
 		$rand = FALSE; //no longer using the random method
-		$population = 1;
+		$population = 7;
 		srand( $population*rand(0,10000) );
 
 		$q = new WP_Query( array(
@@ -32,7 +32,7 @@
 
 		$fixed_vals = array(
 				// dimension, top, left
-			array( 10,35,6 ),
+			array( 10,80,6 ),
 			array( 20,40,40 ),
 			array( 10,12,70 ),
 			array( 6,25,30 ),

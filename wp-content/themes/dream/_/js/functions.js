@@ -185,6 +185,9 @@ function headerToggle() {
 }
 
 function dreamToggle(dream) {
+
+	$('.dream').removeClass('active');
+
 	if(!bodyState){
 		$('body').removeClass('orbiting');	
 		$('body').addClass('dream-active');	

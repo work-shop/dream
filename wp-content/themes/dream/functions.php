@@ -153,7 +153,7 @@ add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 570, 570, false );
 }
 if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'drawing', 1440, 1440, true );	
+	add_image_size( 'drawing', 768, 768, true );	
 }
 
 
