@@ -4,8 +4,10 @@ var minSmallOffset = 240;
 var cw,ch,bh,dh,ch2;
 var headerState = false;
 var headerState2 = true;
+var bodyState = false;
 loaded = false;
 opening = false;
+
 
 jQuery(document).ready(function($) {
 
@@ -70,6 +72,10 @@ jQuery(document).ready(function($) {
 		$('.flip-link.on').removeClass('on').addClass('off');					  			
 	});	
 	
+	$('.dream').click(function(event) {
+	  dreamToggle(this);	
+	});		
+	
 
 });//end document.ready
 
@@ -90,13 +96,14 @@ $(window).ready(function() {
 
 $(window).resize(function() {
 
-	view();	
+	//view();	
 	
 });//end window.resize
 
 
 $(window).scroll(function(e) { 
 
+	//parallax();
 
 });//end window.scroll
 
@@ -180,6 +187,24 @@ function headerToggle() {
 	
 }
 
+function dreamToggle(dream) {
+	if(!bodyState){
+		$('body').removeClass('orbiting');	
+		$('body').addClass('dream-active');	
+		$(dream).addClass('active');
+		bodyState = true;
+		
+	}
+	else if (bodyState) {
+		$('body').addClass('orbiting');	
+		$('body').removeClass('dream-active');	
+		$(dream).removeClass('active');
+		bodyState = false;						
+	}
+	
+}
+
+
 
 function view(){
 		
@@ -229,9 +254,9 @@ function loadElements(){
 
 function parallax(){
 
-/*
+
 	var body = $('body');
-	var pElement = $('.dream-gallery');
+	var pElement = $('.active .dream-text-inner');
 	
 	var pTravel = 50;
 	var pRatio = pTravel/75;
@@ -252,11 +277,11 @@ function parallax(){
 	var pNum = pNumTemp + '%';
 	
 	//pElement.css('-webkit-filter', pNum2 );	
+	//pElement.css('left', pNum );
 	pElement.css('left', pNum );
-	pElement.css('top', pNum );
 
 	//requestAnimationFrame(parallax); 
-*/
+
 
 
 }

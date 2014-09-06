@@ -46,11 +46,11 @@
 			
 </head>
 
-<body <?php body_class('before header-closed'); ?>>
+<body <?php body_class('before header-closed orbiting loading'); ?>>
 
 	<div id="background"></div>
 
-	<header id="header" class="closed">
+	<header id="header" class="open">
 
 		<div id="nav-toggle" class="off">
 			<img src="<?php bloginfo('template_directory'); ?>/_/img/toggle.png" alt="menu-toggle-icon" />

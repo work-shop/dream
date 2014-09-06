@@ -312,7 +312,7 @@ h3{
 }
 
 h4{
-	font-size: 14px;
+	font-size: 13px;
 }
 
 h5,h6{
@@ -363,8 +363,9 @@ h5,h6{
 	height: 100%;
 	z-index: -1;
 	overflow: hidden;
-	background-image: url('../img/background5.jpg');
-	background-size: cover;	
+	.transition(all,2s);
+	background: #eee;
+
 }
 
 #header{
@@ -466,10 +467,55 @@ h5,h6{
 
 /********** @DREAMS PHASE 2 *********/
 
+.dream-active{
+	#background{
+		background: #333;
+	}
+	
+	.dream{
+		opacity: .05;
+		&.active{
+			opacity: 1;
+		}
+	}
+}
+
 #dreams{
+	height: inherit;
+	position: relative;
 	
 	article{
 		position: absolute;
+		transform: translate(-10px) scale(1,1);
+		
+		//.transition(all,2s);
+		
+		&.active{
+			//top: 20px !important;
+			//left: 40% !important;
+			
+			img{
+				transform: scale(3,3) translate(20px,40%);
+			}
+			
+			*{
+				//.transition(all,2s);
+				color: white;
+			}
+			
+			.info{
+				opacity: 1;
+				top: 0;
+				
+				.excerpt{
+					left: 0;
+				}
+			}			
+			
+			.dream-text{
+				top:0;
+			}
+		}
 		
 		&:hover{
 			.info{
@@ -484,15 +530,17 @@ h5,h6{
 		
 		img{
 			.border-radius(1000000px); 
+			 .transition(transform,2s); 
 		}
 		
 		.info{
 			position: relative;
 			text-align: center;
-			.transition(all,1s);
+			margin-top: 20px;
+			.transition(all,2s);
 			
 			opacity: 0;
-			top: -50%;
+			top: -250px;
 			
 			h2,h3,h4,h5{
 				margin-top: 3px;
@@ -507,11 +555,25 @@ h5,h6{
 			.excerpt{
 				margin-top: 20px;
 				//display: none;
-				.transition(all,3s);
+				.transition(all,2s);
 				position: relative;
 				left: 50%;
 			}
 		
+		}
+	}
+	
+	.dream-text{
+		margin-top: 60px;
+		position: relative;
+		top: 500px;
+		.transition(top,3s);
+		width: 600px;
+		left: -130px;
+		padding-bottom: 200px;
+		
+		.dream-text-inner{
+			position: relative;
 		}
 	}
 	

@@ -13,7 +13,7 @@
 	
 ?>
 
-<section id="home" class="block crop">
+<section id="dreams" class="block crop">
 	<?php
 
 		$rand = FALSE;
@@ -22,24 +22,23 @@
 
 		$q = new WP_Query( array(
 			'post_type' => 'dreams',
-			'number_posts' => $population
+			'posts_per_page' => $population
 
 		) );
 
 		$fixed_vals = array(
 				// dimension, top, left
 			array( 10,35,6 ),
-			array( 23,40,40 ),
-			array( 15,5,70 ),
-			array( 40,25,20 ),
-			array( 1,5,3 ),
+			array( 20,40,40 ),
+			array( 10,12,70 ),
+			array( 6,25,30 ),
+			array( 12,5,3 ),
+			array( 3,77,77 ),			
 		);
 
 		if ( $q->have_posts() ) :	
 
 	?>
-
-	<div id="dreams">
 	<?php
 
 	$i = 0;
@@ -59,16 +58,16 @@
 		$minX	= 10;
 		$minY	= 5;
 		$maxX	= 80;
-		$maxY	= 90;
+		$maxY	= 80;
 
 		$scale_factor = 15;
 
 		if ( $dream_length != 0 ) {
 			//$dim 	= (100 / $dream_length) * $scale_factor;
-			$dim 	= rand(8,20);
+			$dim 	= rand(8,18);
 
 		} else {
-			$dim 	= rand(8,20);
+			$dim 	= rand(8,18);
 		}
 		
 		$top 	= rand( $minY,$maxY );
@@ -78,9 +77,9 @@
 	?>
 	
 	<?php if ( $rand ) { ?>
-		<article class="dream" style="<?php echo str_format($dim, $top, $left); ?>">
+		<article class="dream <?php echo 'd' . $i; ?>" style="<?php echo str_format($dim, $top, $left); ?>">
 	<?php } else { ?>
-		<article class="dream" style="<?php echo arr_format( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
+		<article class="dream <?php echo 'd' . $i; ?>" style="<?php echo arr_format( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
 	<?php } ?>
 
 		<a href="#<?php echo $post->post_name; ?>" >
@@ -108,13 +107,27 @@
 			<?php // if ( get_the_field('dream_excerpt', $id ) ) : ?><h5 class="excerpt">I eat a fennel salad. I become aware that the Venerable Chogyam Trungpa Rinpoche is watching me eat.<?php // the_field( 'dream_excerpt', $id ); ?></h5><?php // endif; ?>
 			
 		</div>
+		
+		<div class="dream-body">
+		
+			<div class="dream-text">
+				<div class="container">
+					<div class="row">			
+				
+						<div class="dream-text-inner serif italic ">
+							<?php the_field('dream_text'); ?>
+						</div>
+						
+					</div>				
+				</div>
+			</div>
+		
+		</div>
 		</a>
 
 	</article>
 
 	<?php $i++; endwhile; ?>
-
-	</div>
 
 	<?php endif; ?>
 
