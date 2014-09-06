@@ -4,20 +4,24 @@
 <?php
 
 	function str_format( $dim, $top, $left ) {
-		return 'position:absolute; width: '.$dim.'%; height:'.$dim.'%; top:'.$top.'%; left:'.$left.'%;';
+		return 'width: '.$dim.'%; height:'.$dim.'%; transform: translate('.$top.'%, '.$left.'%;);';
 	}
 
-	function arr_format( $array ) {
-		return 'position:absolute; width: '.$array[0].'%; height:'.$array[0].'%; top:'.$array[1].'%; left:'.$array[2].'%;';
+	function arr_format_translate( $array ) {
+		return '-webkit-transform: translate('.$array[1].'%,'.$array[2].'%);';
 	}
+	
+	function arr_format_size( $array ) {
+		return 'width:'.$array[0].'%; height:'.$array[0].'%;';
+	}	
 	
 ?>
 
 <section id="dreams" class="block crop">
 	<?php
 
-		$rand = FALSE;
-		$population = 7;
+		$rand = FALSE; //no longer using the random method
+		$population = 1;
 		srand( $population*rand(0,10000) );
 
 		$q = new WP_Query( array(
@@ -76,54 +80,58 @@
 		global $post;
 	?>
 	
-	<?php if ( $rand ) { ?>
-		<article class="dream <?php echo 'd' . $i; ?>" style="<?php echo str_format($dim, $top, $left); ?>">
-	<?php } else { ?>
-		<article class="dream <?php echo 'd' . $i; ?>" style="<?php echo arr_format( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
-	<?php } ?>
 
-		<a href="#<?php echo $post->post_name; ?>" >
-
-		<?php if (has_post_thumbnail()) : ?> 	
-		<div class="drawing">
-			<?php the_post_thumbnail('drawing') ?>
-		</div>
-		<?php endif; ?>
-
-		<div class="info">
-
-			<hgroup class="title">
-				<?php if ( $dream_number ) : ?><h3 class="dream-number">Dream No. <?php echo $dream_number; ?></h3><?php endif; ?>
-				<h2 class="dream-title"><?php the_title(); ?></h2>
-			</hgroup>
-
-			<hgroup class="metadata">
-				<?php if ( $dream_length ) : ?><h4 class="dream-length"><?php echo $dream_length; ?> words</h4><?php endif; ?>
-				<?php if ( $dream_author ) : ?><h4 class="dream-author">Written by <?php echo $dream_author; ?></h4><?php endif; ?>
-				<?php if ( $dream_date ) : ?><h4 class="dream-date"><?php echo $dream_date; ?></h4><?php endif; ?>
-				<?php if ( $dream_drawing_title ) : ?><h4 class="dream-drawing-title">Drawing: <?php echo $dream_drawing_title; ?></h4><?php endif; ?>
-			</hgroup>
-
-			<?php // if ( get_the_field('dream_excerpt', $id ) ) : ?><h5 class="excerpt">I eat a fennel salad. I become aware that the Venerable Chogyam Trungpa Rinpoche is watching me eat.<?php // the_field( 'dream_excerpt', $id ); ?></h5><?php // endif; ?>
-			
-		</div>
-		
-		<div class="dream-body">
-		
-			<div class="dream-text">
-				<div class="container">
-					<div class="row">			
+	<article class="dream <?php echo 'dream' . $i; ?>" style="<?php echo arr_format_translate( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
+	
+		<div class="dream-inner">
+	
+			<a href="#<?php echo $post->post_name; ?>" >
+	
+				<?php if (has_post_thumbnail()) : ?> 	
+				<div class="dream-drawing" style="<?php echo arr_format_size( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
+					<?php the_post_thumbnail('drawing') ?>
+				</div>
+				<?php endif; ?>
 				
-						<div class="dream-text-inner serif italic ">
-							<?php the_field('dream_text'); ?>
+				<div class="dream-body">
+		
+					<div class="dream-info">
+			
+						<hgroup class="title">
+							<?php if ( $dream_number ) : ?><h3 class="dream-number">Dream No. <?php echo $dream_number; ?></h3><?php endif; ?>
+							<h2 class="dream-title"><?php the_title(); ?></h2>
+						</hgroup>
+			
+						<hgroup class="metadata">
+							<?php if ( $dream_length ) : ?><h4 class="dream-length"><?php echo $dream_length; ?> words</h4><?php endif; ?>
+							<?php if ( $dream_author ) : ?><h4 class="dream-author">Written by <?php echo $dream_author; ?></h4><?php endif; ?>
+							<?php if ( $dream_date ) : ?><h4 class="dream-date"><?php echo $dream_date; ?></h4><?php endif; ?>
+							<?php if ( $dream_drawing_title ) : ?><h4 class="dream-drawing-title">Drawing: <?php echo $dream_drawing_title; ?></h4><?php endif; ?>
+						</hgroup>
+			
+						<?php // if ( get_the_field('dream_excerpt', $id ) ) : ?><h5 class="excerpt">I eat a fennel salad. I become aware that the Venerable Chogyam Trungpa Rinpoche is watching me eat.<?php // the_field( 'dream_excerpt', $id ); ?></h5><?php // endif; ?>
+						
+					</div>
+				
+					<div class="dream-text">
+						
+						<div class="container">
+							<div class="row">			
+						
+								<div class="dream-text-inner serif italic ">
+									<?php the_field('dream_text'); ?>
+								</div>
+								
+							</div>				
 						</div>
 						
-					</div>				
+					</div>
+				
 				</div>
-			</div>
-		
-		</div>
-		</a>
+				
+			</a>
+			
+		</div><!--inner-->
 
 	</article>
 

@@ -19,28 +19,9 @@
 @orbitDistance: 20px;
 
 .orbiting{
-	 .d0{
-		.animation(orbit, 8s, linear, 1s, infinite);
+	 .dream-drawing{
+		//.animation(orbit, 8s, linear, 1s, infinite);
 	}
-	
-	.d1{
-		.animation(orbit, 16s, linear, 2s, infinite);
-	}
-	
-	.d2{
-		.animation(orbit, 24s, linear, 1s, infinite);
-	}
-	 .d3{
-		.animation(orbit, 9s, linear, 1s, infinite);
-	}
-	
-	.d4{
-		.animation(orbit, 13s, linear, 3s, infinite);
-	}
-	
-	.d5{
-		.animation(orbit, 19s, linear, 1s, infinite);
-	}	
 	
 }
 
@@ -58,28 +39,27 @@
 @-webkit-keyframes orbit{
 	0% {
 		transform: 
-		
-					rotate(0deg)
-		           translate(-10px)
-		           rotate(0deg)
-		           scale(1,1);
-		           opacity: 1;
+		   rotate(0deg)
+           translate(-10px)
+           rotate(0deg)
+           scale(1,1);
+         opacity: 1;
 	}
 	50% {
 		transform: 
-					rotate(180deg)
-		           translate(-10px) 
-		           rotate(-180deg)
-		           scale(.8,.8);
-		           opacity: .75;
+		   rotate(180deg)
+           translate(-10px) 
+           rotate(-180deg)
+           scale(.8,.8);
+         opacity: .75;
 	} 	
 	100% {
 		transform: 
-					rotate(360deg)
-		           translate(-10px) 
-		           rotate(-360deg)
-		           scale(.92,.92);
-		           opacity: 1;
+		   rotate(360deg)
+           translate(-10px) 
+           rotate(-360deg)
+           scale1(1,1);
+         opacity: 1;
 	} 
 }
 

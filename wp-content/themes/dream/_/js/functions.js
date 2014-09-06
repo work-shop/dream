@@ -1,6 +1,3 @@
-var hh = 60;
-var scrollOffset = 60;
-var minSmallOffset = 240;
 var cw,ch,bh,dh,ch2;
 var headerState = false;
 var headerState2 = true;
@@ -212,6 +209,7 @@ function view(){
 	cw = $(window).width();
 	
 	$(".block.crop").css('min-height',ch);
+	$(".block.crop").css('width',cw);
 	
 	if(!loaded){
 		loadElements();
