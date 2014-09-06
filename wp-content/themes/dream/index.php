@@ -12,7 +12,8 @@
 	}
 	
 	function arr_format_size( $array ) {
-		return 'width:'.$array[0].'%; height:'.$array[0].'%;';
+		//return 'width:'.$array[0].'%; height:'.$array[0].'%;';
+		return 'width:'.$array[0].'%;';
 	}	
 	
 ?>
@@ -32,12 +33,12 @@
 
 		$fixed_vals = array(
 				// dimension, top, left
-			array( 10,80,6 ),
-			array( 20,40,40 ),
-			array( 10,12,70 ),
+			array( 13,80,6 ),
+			array( 38,40,40 ),
+			array( 12,9,70 ),
 			array( 6,25,30 ),
-			array( 12,5,3 ),
-			array( 3,77,77 ),			
+			array( 18,12,3 ),
+			array( 5,77,77 ),			
 		);
 
 		if ( $q->have_posts() ) :	
@@ -109,7 +110,7 @@
 							<?php if ( $dream_drawing_title ) : ?><h4 class="dream-drawing-title">Drawing: <?php echo $dream_drawing_title; ?></h4><?php endif; ?>
 						</hgroup>
 			
-						<?php // if ( get_the_field('dream_excerpt', $id ) ) : ?><h5 class="excerpt">I eat a fennel salad. I become aware that the Venerable Chogyam Trungpa Rinpoche is watching me eat.<?php // the_field( 'dream_excerpt', $id ); ?></h5><?php // endif; ?>
+						<?php // if ( get_the_field('dream_excerpt', $id ) ) : ?><h3 class="excerpt">I eat a fennel salad. I become aware that the Venerable Chogyam Trungpa Rinpoche is watching me eat.<?php // the_field( 'dream_excerpt', $id ); ?></h3><?php // endif; ?>
 						
 					</div>
 				

@@ -18,21 +18,61 @@
 
 @orbitDistance: 20px;
 
-.orbiting{
-	 .dream-drawing{
+
+.dream0{
+	.dream-drawing{
 		.animation(orbit, 12s, linear, 4s, infinite);
-	}
-	
+	}	
 }
 
+.dream1{
+	.dream-drawing{
+		.animation(orbit, 16s, linear, 5s, infinite);
+	}	
+}
+
+.dream2{
+	.dream-drawing{
+		.animation(orbit, 12s, linear, 6s, infinite);
+	}	
+}
+
+.dream3{
+	.dream-drawing{
+		.animation(orbit, 8s, linear, 5s, infinite);
+	}	
+}
+
+.dream4{
+	.dream-drawing{
+		.animation(orbit, 18s, linear, 7s, infinite);
+	}	
+}
+
+.dream5{
+	.dream-drawing{
+		.animation(orbit, 12s, linear, 8s, infinite);
+	}	
+}
+
+.dream6{
+	.dream-drawing{
+		.animation(orbit, 20s, linear, 4s, infinite);
+	}	
+}
+
+
+
+/*
 .dream-inner:hover{
 	.dream-drawing{
-		 -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
+		 -webkit-animation-play-state: paused; 
 		 animation-play-state: paused;
 	}
 }
+*/
 
-.dream-active .dream{
+.dream-active .dream-drawing{
 	 -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
 	 animation-play-state: paused;	
 }
@@ -53,7 +93,7 @@
            translate(-10px) 
            rotate(-180deg)
            scale(.8,.8);
-         opacity: .75;
+         opacity: .5;
 	} 	
 	100% {
 		transform: 

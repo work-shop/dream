@@ -16,8 +16,6 @@
 
 @error: #f2dede;
 
-@h: 20px;
-
 
 .gradient(){
 	background: #ffffff; /* Old browsers */
@@ -44,11 +42,11 @@
 	font-family: @font-family-text;	
 }
 
-.transition(@property: all,@duration: .5s, @delay: 0s, ease){
-	transition: @property @duration @delay;
-	-moz-transition: @property @duration @delay; 
-	-webkit-transition: @property @duration @delay; 
-	-o-transition: @property @duration @delay; 	
+.transition(@property: all,@duration: .5s, @delay: 0s, @easeing: ease){
+	transition: @property @duration @delay @easeing;
+	-moz-transition: @property @duration @delay @easeing; 
+	-webkit-transition: @property @duration @delay @easeing; 
+	-o-transition: @property @duration @delay @easeing; 	
 }
 
 .shadow(@x: 0px, @y: 0px, @size: 4px, @shadow-color: @medium){
@@ -132,7 +130,7 @@ img,video{
 	display: block;
 	float: none;
 	position: relative;
-	margin: @h auto;
+	margin: 20px auto;
 }
 
 .centered{
@@ -173,10 +171,10 @@ img,video{
 }
 
 .icon-left:before{
-	margin-right: @h/2;
+	margin-right: 10px;
 }
 .icon-right:before{
-	margin-left: @h/2;
+	margin-left: 10px;
 }
 
 a{
@@ -304,15 +302,15 @@ h1{
 }
 
 h2{
-	font-size: 21px;
+	font-size: 30px;
 }
 
 h3{
-	font-size: 18px;
+	font-size: 24px;
 }
 
 h4{
-	font-size: 13px;
+	font-size: 19px;
 }
 
 h5,h6{
@@ -344,6 +342,10 @@ h5,h6{
 
 /********** @STRUCTURE *********/
 
+html, body {
+    //max-width: 100%;
+    //overflow-x: hidden;
+}
 
 .loading{
 	.transition(opacity,1s);
@@ -467,119 +469,6 @@ h5,h6{
 
 /********** @DREAMS PHASE 2 *********/
 
-/*
-.dream-active{
-	#background{
-		background: #333;
-	}
-	
-	.dream{
-		opacity: .05;
-		&.active{
-			opacity: 1;
-		}
-	}
-}
-
-#dreams{
-	height: inherit;
-	position: relative;
-	
-	article{
-		position: absolute;
-		transform: translate(-10px) scale(1,1);
-		
-		//.transition(all,2s);
-		
-		&.active{
-			//top: 20px !important;
-			//left: 40% !important;
-			
-			img{
-				transform: scale(3,3) translate(20px,40%);
-			}
-			
-			*{
-				//.transition(all,2s);
-				color: white;
-			}
-			
-			.info{
-				opacity: 1;
-				top: 0;
-				
-				.excerpt{
-					left: 0;
-				}
-			}			
-			
-			.dream-text{
-				top:0;
-			}
-		}
-		
-		&:hover{
-			.info{
-				opacity: 1;
-				top: 0;
-				
-				.excerpt{
-					left: 0;
-				}
-			}
-		}
-		
-		img{
-			.border-radius(1000000px); 
-			 .transition(transform,2s); 
-		}
-		
-		.info{
-			position: relative;
-			text-align: center;
-			margin-top: 20px;
-			.transition(all,2s);
-			
-			opacity: 0;
-			top: -250px;
-			
-			h2,h3,h4,h5{
-				margin-top: 3px;
-				margin-bottom: 0;
-			}
-			
-			.metadata{
-				margin-top: 20px;
-				display: none;
-			}
-			
-			.excerpt{
-				margin-top: 20px;
-				//display: none;
-				.transition(all,2s);
-				position: relative;
-				left: 50%;
-			}
-		
-		}
-	}
-	
-	.dream-text{
-		margin-top: 60px;
-		position: relative;
-		top: 500px;
-		.transition(top,3s);
-		width: 600px;
-		left: -130px;
-		padding-bottom: 200px;
-		
-		.dream-text-inner{
-			position: relative;
-		}
-	}
-	
-}
-*/
 
 body.dream-active{
 	#background{
@@ -587,7 +476,7 @@ body.dream-active{
 	}
 	
 	.dream{
-		 opacity: .05; 
+		opacity: 0;
 		
 		&.active{
 			opacity: 1;
@@ -596,29 +485,29 @@ body.dream-active{
 
 }
 
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
+
+@duration: 5s;
 
 .dream{
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	.transition(transform,3s);
+	.transition(transform,@duration);
 	left: -50%;
 	top: -50px;
 	
+	pointer-events: none;
+	
 	&.active{
-		transform: translate(50%,0%) !important;
+		transform: translate(50%,-25%) !important;
 		
-		.dream-drawing img{
-			transform: scale(10) rotate(.1deg);
+		.dream-drawing{
+			max-width: 500px;
+			width: 500px !important;
 		}		
 		
 		.dream-body{
-			visibility: visible;	
-			transform: translate(0,0%);
+			-webkit-transform: translate3d(0,0,1px);
 		}
 				
 	}
@@ -626,42 +515,63 @@ html, body {
 }
 
 .dream-inner{
-	width: 600px;
+	width: 800px;
 	height: 100%;
 	margin: 50px auto 0 auto;
 }
 
 .dream-drawing{
+	position: relative;	
 	min-width: 50px;
 	max-width: 300px;
 	margin: 0 auto;
 	transform: translate(-10px);
+	.transition(width,@duration,0s);
+	
+	pointer-events: auto;
 	
 	&:hover{
-		border: 3px solid black;
+		-webkit-animation-play-state: paused;
+		animation-play-state: paused;
 	}
 	
 	img{
 		.border-radius(10000px);	
-		.transition(transform,3s);
 	}
 }
 
 .dream-body{
 	padding-bottom: 320px;
-	transform: translate(0,50%);
-	visibility: hidden;
-	.transition(transform,2s,2s);
+	-webkit-transform: translate3d(0,50%,1px);
+	.transition(transform,4s,1s);
+	
+	//margin-top: 400px;
+	
+	*{
+		color: #eee;
+	}
 }
 
 .dream-info{
-	margin-bottom: 50px;
+	margin-bottom: 60px;
 	
 	*{
 		text-align: center;
 	}
 }
 
+.dream-text{
+	p{
+		font-size: 27px;
+		margin-bottom: 30px;
+	}
+	
+	position: relative;
+}
+
+.dream-text-inner{
+	position: relative;
+}
 
 
 

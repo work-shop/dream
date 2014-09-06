@@ -98,9 +98,11 @@ $(window).resize(function() {
 });//end window.resize
 
 
-$(window).scroll(function(e) { 
+$(window).scroll(function() { 
 
-	//parallax();
+	if($('body').hasClass('dream-active')){
+		parallax();	
+	}
 
 });//end window.scroll
 
@@ -255,9 +257,11 @@ function loadElements(){
 
 function parallax(){
 
+	console.log('parallax');
 
 	var body = $('body');
-	var pElement = $('.active .dream-text-inner');
+	var pElement = $('.active .dream-text');
+	var pElement2 = $('.active .dream-drawing');	
 	
 	var pTravel = 50;
 	var pRatio = pTravel/75;
@@ -270,16 +274,21 @@ function parallax(){
 	
 	var pBody = body.scrollTop();
 
-	var pScroll = (pBody / pH) * 100;
+	var pScroll = (pBody / pH) * 2500;
 				
 	var pNumTemp = 1*(pScroll*pRatio);
-	var pNumTemp2 = ((pScroll*pRatio)/1);	
-	var pNum2 = 'blur(' + pNumTemp2 + 'px)';	
-	var pNum = pNumTemp + '%';
+	var pNum = pNumTemp + 'px';
+	var pNum2 = 4*pNumTemp + 'px';
+	var pNum3 = (-1*pNumTemp)/3 + 'px';
+	
+	
 	
 	//pElement.css('-webkit-filter', pNum2 );	
 	//pElement.css('left', pNum );
-	pElement.css('left', pNum );
+	pElement.css('top', pNum );
+	//pElement2.css('top', pNum2 );
+	pElement2.css('left', pNum3 );
+	
 
 	//requestAnimationFrame(parallax); 
 
