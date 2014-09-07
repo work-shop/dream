@@ -272,13 +272,12 @@ a{
 
 .serif{
 	font-family: georgia,serif;
-	line-height: 1.7;
+	line-height: 1.65;
 	font-size: 19px;
 	
-	p,a{
-	font-family: georgia,serif;
-		line-height: 1.7;
-		font-size: 19px;	
+	*{
+		font-family: georgia,serif;
+		line-height: 1.65;
 	}
 }
 
@@ -302,15 +301,15 @@ h1{
 }
 
 h2{
-	font-size: 30px;
+	font-size: 36px;
 }
 
 h3{
-	font-size: 24px;
+	font-size: 21px;
 }
 
 h4{
-	font-size: 19px;
+	font-size: 16px;
 }
 
 h5,h6{
@@ -456,8 +455,6 @@ html, body {
 	}
 	
 	
-
-	
 }
 
 #content{
@@ -472,7 +469,7 @@ html, body {
 
 body.dream-active{
 	#background{
-		background: #333;
+		background: #444;
 	}
 	
 	.dream{
@@ -515,7 +512,8 @@ body.dream-active{
 }
 
 .dream-inner{
-	width: 800px;
+	width: 90%;
+	max-width: 800px;
 	height: 100%;
 	margin: 50px auto 0 auto;
 }
@@ -533,6 +531,12 @@ body.dream-active{
 	&:hover{
 		-webkit-animation-play-state: paused;
 		animation-play-state: paused;
+		opacity: 1;
+		
+		.drawing-info{
+			transform: translate(-30%,0);
+			opacity: 1;			
+		}
 	}
 	
 	img{
@@ -540,30 +544,85 @@ body.dream-active{
 	}
 }
 
+.drawing-info{
+	position: absolute;
+	text-align: center;
+	transform: translate(-75%,-50%);
+	width: 300px;
+	margin: 0 auto;
+	opacity: 0;
+	.transition(all,1s);
+}
+
 .dream-body{
 	padding-bottom: 320px;
 	-webkit-transform: translate3d(0,50%,1px);
 	.transition(transform,4s,1s);
-	
-	//margin-top: 400px;
-	
+		
 	*{
-		color: #eee;
+		color: #ddd;
 	}
 }
 
 .dream-info{
+	margin-top: 60px;
 	margin-bottom: 60px;
+	
+	hgroup{
+		margin-bottom: 15px;
+	}
 	
 	*{
 		text-align: center;
 	}
+	
+	&:after{
+		width: 30px;
+		height: 3px;
+		background: #ddd;
+		margin: 0 auto;
+		display: block;
+		
+	}
+}
+
+.dream-title{
+	margin: 120px 0 30px 0;
+}
+
+.excerpt{
+	margin: 60px auto;
 }
 
 .dream-text{
 	p{
-		font-size: 27px;
+		font-size: 22px;
 		margin-bottom: 30px;
+		line-height: 1.5;
+	}
+	
+	h1,h2,h3{
+		line-height: 1.2;
+		margin-bottom: 30px;
+		margin-top: 60px;
+	}
+	
+	h1{
+		font-size: 45px;
+	}
+	
+	h2{
+		font-size: 36px;
+	}
+	
+	h3{
+		font-size: 30px;
+	}
+	
+	.centered{
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 	position: relative;
