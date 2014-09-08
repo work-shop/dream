@@ -364,22 +364,21 @@ html, body {
 	height: 100%;
 	z-index: -1;
 	overflow: hidden;
-	.transition(all,2s);
+	.transition(all,@duration);
 	background: #eee;
 
 }
 
 #header{
 
-	.transition(all,1s);
+	//.transition(all,1s);
 	overflow: hidden;
 	position: fixed;
 	width: 100%;
-	z-index: 999;
-	//opacity: .25;
+	z-index: 9999;
+	//opacity: .75;
 	bottom: 0;
-	height: 100px;
-	
+	height: 120px;	
 	
 	&:hover{
 		opacity: 1;
@@ -409,7 +408,7 @@ html, body {
 		
 		&:hover{
 			cursor: pointer;
-			-webkit-transform: rotateX(180deg) rotateY(180deg);
+			//-webkit-transform: rotateX(180deg) rotateY(180deg);
 		}
 		
 	}
@@ -433,6 +432,20 @@ html, body {
 				a{
 					display: block;
 					text-decoration: underline;
+					
+					&.nav-icon{
+						text-decoration: none;
+						color: #333;
+						
+						&.active{
+							color: #999;	
+						}
+						
+						.icon:before{
+							font-size: 21px;
+							line-height: 14px;
+						}
+					}
 					
 					&:hover{
 						text-decoration: line-through;
@@ -469,7 +482,7 @@ html, body {
 
 body.dream-active{
 	#background{
-		background: #444;
+		background: #222;
 	}
 	
 	.dream{
@@ -489,7 +502,7 @@ body.dream-active{
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	.transition(transform,@duration);
+	.transition(all,@duration);
 	left: -50%;
 	top: -50px;
 	
@@ -502,6 +515,10 @@ body.dream-active{
 			max-width: 500px;
 			width: 500px !important;
 		}		
+		
+		.hover-info{
+			opacity: 0;
+		}
 		
 		.dream-body{
 			-webkit-transform: translate3d(0,0,1px);
@@ -524,7 +541,7 @@ body.dream-active{
 	max-width: 300px;
 	margin: 0 auto;
 	transform: translate(-10px);
-	.transition(width,@duration,0s);
+	.transition(all,@duration,0s);
 	
 	pointer-events: auto;
 	
@@ -533,24 +550,25 @@ body.dream-active{
 		animation-play-state: paused;
 		opacity: 1;
 		
-		.drawing-info{
-			transform: translate(-30%,0);
+		&+.hover-info{
+			transform: translate(-0%,0%);
 			opacity: 1;			
 		}
 	}
 	
 	img{
-		.border-radius(10000px);	
+		.border-radius(10000px);
+		display: block;	
 	}
 }
 
-.drawing-info{
-	position: absolute;
+.hover-info{
+	position: relative;
 	text-align: center;
-	transform: translate(-75%,-50%);
-	width: 300px;
+	width: 200px;
 	margin: 0 auto;
 	opacity: 0;
+	transform: translate(-100%,-100%);
 	.transition(all,1s);
 }
 
@@ -584,15 +602,27 @@ body.dream-active{
 		display: block;
 		
 	}
+	
+	hr{
+		width: 60px;
+		margin: 0px auto 90px auto;
+		border: 1px solid #eee;
+		
+	}
+	
+
+	.dream-title{
+		margin: 60px 0 0px 0;
+		font-size: 50px;
+	}
+	
+	.excerpt{
+		margin: 15px auto 45px auto;
+		font-size: 27px;
+	}	
+		
 }
 
-.dream-title{
-	margin: 120px 0 30px 0;
-}
-
-.excerpt{
-	margin: 60px auto;
-}
 
 .dream-text{
 	p{
@@ -602,7 +632,7 @@ body.dream-active{
 	}
 	
 	h1,h2,h3{
-		line-height: 1.2;
+		line-height: 1.35;
 		margin-bottom: 30px;
 		margin-top: 60px;
 	}
@@ -632,7 +662,62 @@ body.dream-active{
 	position: relative;
 }
 
+body.dreams-grid{
 
+	.dream{
+		position: relative;
+		left: 0;
+		top: 0;
+		height: auto;
+		transform: translate(0,0) !important;
+		left: 0;
+		
+		pointer-events: auto;
+	}
+	
+	.dream-inner{
+		height: auto;
+	}
+	
+	.dream-drawing{
+		width: 0px !important;
+		height: 0px !important;
+		min-width: 0px;
+	}
+	
+	.hover-info{
+		opacity: 1;
+		transform: translate(-0%,0%);
+		
+		*{
+			text-align: left;
+		}
+		display: none;
+	}
+	
+	.dream-body{
+		-webkit-transform: translate3d(0,0%,1px);
+		padding-bottom: 0;
+		
+		*{
+			color: #444;
+		}
+	}
+	
+	.dream-info{
+		margin: 0;
+	}
+	
+	.dream-text{
+		display: none;
+		height: 0;
+	}
+	
+	.dream-title{
+		margin-top: 0;
+	}
+	
+}
 
 
 

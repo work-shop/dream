@@ -26,6 +26,11 @@ jQuery(document).ready(function($) {
 		navToggle();
 	});	
 	
+	$('.display-toggle').click(function(event) {
+	  	event.preventDefault();
+		dreamDisplayToggle();
+	});	
+	
 	//m for menu
 	$(document).keypress(function(e) {
 		if(e.which == 109) {
@@ -93,7 +98,7 @@ $(window).ready(function() {
 
 $(window).resize(function() {
 
-	//view();	
+	view();	
 	
 });//end window.resize
 
@@ -142,6 +147,11 @@ function blockToggle(_id,_this){
 
 function navToggle() {
 
+	if ($('body').hasClass('dream-active')) {
+		dreamToggle();
+	}
+	
+
 	if(!headerState2){
 		$('#header').removeClass('hidden');
 		$('#header').addClass('visible');
@@ -170,6 +180,21 @@ function navToggle() {
 	
 }
 
+function dreamDisplayToggle() {
+
+	if ($('body').hasClass('dreams-orbiting')) {
+		$('body').addClass('dreams-grid');	
+		$('body').removeClass('dreams-orbiting');		
+	}
+	
+	else if ($('body').hasClass('dreams-grid')) {
+		$('body').addClass('dreams-orbiting');	
+		$('body').removeClass('dreams-grid');
+		
+	}	
+		
+}
+
 
 function headerToggle() {
 	if(!headerState2){
@@ -189,19 +214,24 @@ function headerToggle() {
 function dreamToggle(dream) {
 
 	$('.dream').removeClass('active');
+	
+	if ($('#header').hasClass('open')) {
+		$('#header').removeClass('open');
+		$('#header').addClass('closed');	
+	}
 
 	if(!bodyState){
 		$('body').removeClass('orbiting');	
 		$('body').addClass('dream-active');	
 		$(dream).addClass('active');
 		bodyState = true;
-		
 	}
 	else if (bodyState) {
 		$('body').addClass('orbiting');	
 		$('body').removeClass('dream-active');	
 		$(dream).removeClass('active');
-		bodyState = false;						
+		bodyState = false;	
+					
 	}
 	
 }
@@ -274,25 +304,18 @@ function parallax(){
 	
 	var pBody = body.scrollTop();
 
-	var pScroll = (pBody / pH) * 2500;
+	var pScroll = (pBody / pH) * 1500;
 				
 	var pNumTemp = 1*(pScroll*pRatio);
 	var pNum = pNumTemp + 'px';
 	var pNum2 = 4*pNumTemp + 'px';
 	var pNum3 = (-1*pNumTemp)/3 + 'px';
 	
-	
-	
-	//pElement.css('-webkit-filter', pNum2 );	
-	//pElement.css('left', pNum );
 	pElement.css('top', pNum );
 	//pElement2.css('top', pNum2 );
-	pElement2.css('left', pNum3 );
+	//pElement2.css('left', pNum3 );
 	
-
 	//requestAnimationFrame(parallax); 
-
-
 
 }
 

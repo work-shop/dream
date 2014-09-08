@@ -34,11 +34,11 @@
 		$fixed_vals = array(
 				// dimension, top, left
 			array( 13,80,6 ),
-			array( 38,40,40 ),
+			array( 38,55,40 ),
 			array( 12,9,70 ),
 			array( 6,25,30 ),
-			array( 18,12,3 ),
-			array( 5,77,77 ),			
+			array( 18,16,7 ),
+			array( 5,79,82 ),			
 		);
 
 		if ( $q->have_posts() ) :	
@@ -91,13 +91,14 @@
 				<?php if (has_post_thumbnail()) : ?> 	
 				<div class="dream-drawing" style="<?php echo arr_format_size( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
 					<?php the_post_thumbnail('drawing') ?>
-					<div class="drawing-info">
-						<?php if ( $dream_number ) : ?><h3 class="dream-number">Dream No. <?php echo $dream_number; ?></h3><?php endif; ?>
-						<h2 class="dream-title"><?php the_title(); ?></h2>
-						<h3 class="excerpt">I eat a fennel salad. I become aware that the Venerable Chogyam Trungpa Rinpoche is watching me eat.</h3>						
-					</div>
-
 				</div>
+				
+				<div class="hover-info">
+					<?php if ( $dream_number ) : ?><h4 class="dream-number hidden">Dream No. <?php echo $dream_number; ?></h4><?php endif; ?>
+					<h4 class="dream-title hidden"><?php the_title(); ?></h4>
+					<h4 class="excerpt italic">Chemistry is a sort of dream. Or a code anyway.</h4>						
+				</div>
+									
 				<?php endif; ?>
 				
 				<div class="dream-body">
@@ -119,8 +120,11 @@
 							<h2 class="dream-title"><?php the_title(); ?></h2>
 						</hgroup>
 
+						<hr class="hidden"/>
 						
-						<h4 class="excerpt italic">Chemistry is a sort of a dream. Or a code anyway.</h4>						
+						<h4 class="excerpt italic">Chemistry is a sort of a dream. Or a code anyway.</h4>		
+						
+						<hr />				
 									
 					</div>
 				
@@ -151,6 +155,5 @@
 	<?php endif; ?>
 
 </section>
-
 		
 <?php get_footer(); ?>

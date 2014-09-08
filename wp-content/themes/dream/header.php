@@ -46,7 +46,7 @@
 			
 </head>
 
-<body <?php body_class('before header-closed orbiting loading'); ?>>
+<body <?php body_class('loading before header-closed dreams-orbiting'); ?>>
 
 	<div id="background"></div>
 
@@ -64,9 +64,14 @@
 			</h1>
 			
 			<ul>
+				<li><a href="#" id="orbit-toggle" class="display-toggle nav-icon active"><span class="icon" data-icon="&#8230;
+"></span></a></li>					
+				<li><a href="#" id="grid-toggle" class="display-toggle nav-icon"><span class="icon" data-icon="&Acirc;"></span></a></li>		
+				<li><a href="#" id="number-toggle" class="display-toggle nav-icon"><span class="" data-icon="">1</span></a></li>								
 				<li><a href="#">about</a></li>
 				<li><a href="#">contact</a></li>
 				<li><a href="#">famous dreams</a></li>
+				
 			</ul>
 		
 		</nav>
