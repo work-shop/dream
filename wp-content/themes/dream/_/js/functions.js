@@ -105,7 +105,7 @@ $(window).resize(function() {
 
 $(window).scroll(function() { 
 
-	if($('body').hasClass('dream-active')){
+	if($('body').hasClass('dream-active') || $('body').hasClass('single')){
 		parallax();	
 	}
 
@@ -290,8 +290,8 @@ function parallax(){
 	console.log('parallax');
 
 	var body = $('body');
-	var pElement = $('.active .dream-text');
-	var pElement2 = $('.active .dream-drawing');	
+	var pElement = $('.dream-body');
+	var pElement2 = $('.dream-background-image');	
 	
 	var pTravel = 50;
 	var pRatio = pTravel/75;
@@ -304,16 +304,15 @@ function parallax(){
 	
 	var pBody = body.scrollTop();
 
-	var pScroll = (pBody / pH) * 1500;
+	var pScroll = (pBody / pH) * 500;
 				
 	var pNumTemp = 1*(pScroll*pRatio);
 	var pNum = pNumTemp + 'px';
-	var pNum2 = 4*pNumTemp + 'px';
-	var pNum3 = (-1*pNumTemp)/3 + 'px';
+	var pNum2 = -1*pNumTemp/2 + 'px';
 	
 	pElement.css('top', pNum );
-	//pElement2.css('top', pNum2 );
-	//pElement2.css('left', pNum3 );
+	pElement2.css('top', pNum2 );
+	pElement2.css('left', pNum2 );
 	
 	//requestAnimationFrame(parallax); 
 

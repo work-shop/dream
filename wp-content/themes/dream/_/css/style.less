@@ -263,6 +263,10 @@ body{
 	font-style: italic;
 }
 
+.brown{
+	font-family: 'Brown';
+}
+
 a{
 	color: darken(@brand,80%);
 	
@@ -300,11 +304,11 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 h1{
-	font-size: 72px;
+	font-size: 42px;
 }
 
 h2{
-	font-size: 36px;
+	font-size: 24px;
 }
 
 h3{
@@ -500,6 +504,7 @@ body.dream-active{
 
 
 @duration: 5s;
+/*
 
 .dream{
 	position: absolute;
@@ -721,9 +726,148 @@ body.dreams-grid{
 	}
 	
 }
+*/
+
+@dream-width: 1200px;
+
+.dream{
+	
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+	
+	&.light{
+		.dream-background{
+			background: #efefef;
+
+		.dream-inner{
+			*{
+				color: #222;
+			}
+		}			
+			
+		}
+	}
+	
+	&.dark{
+		.dream-background{
+background: #444444; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #444444 0%, #0d0d0d 31%, #010101 45%, #0a0a0a 61%, #222222 73%, #444444 85%, #222222 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#444444), color-stop(31%,#0d0d0d), color-stop(45%,#010101), color-stop(61%,#0a0a0a), color-stop(73%,#222222), color-stop(85%,#444444), color-stop(100%,#222222)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  #444444 0%,#0d0d0d 31%,#010101 45%,#0a0a0a 61%,#222222 73%,#444444 85%,#222222 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  #444444 0%,#0d0d0d 31%,#010101 45%,#0a0a0a 61%,#222222 73%,#444444 85%,#222222 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  #444444 0%,#0d0d0d 31%,#010101 45%,#0a0a0a 61%,#222222 73%,#444444 85%,#222222 100%); /* IE10+ */
+background: linear-gradient(135deg,  #444444 0%,#0d0d0d 31%,#010101 45%,#0a0a0a 61%,#222222 73%,#444444 85%,#222222 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#222222',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 
+		}
+		
+		.dream-inner{
+			*{
+				color: #eee;
+			}
+		}
+	}	
+	
+}
 
+.template-background{
+	.dream-drawing{
+		display: none;
+	}
+	
+	.dream-background{
+		opacity: .5;
+	}
+}
+
+.dream-background-image{
+	z-index: -2;
+	position: fixed;
+	width: 100%;
+	height: 200%;
+	background-size: cover;
+	background-position: center top;
+}
+
+.dream-background{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	.transition(background,.5s);
+}
+
+.dream-inner{
+	width: 95%;
+	margin: 0 auto;
+	padding: 30px 0 600px 0;
+	max-width: @dream-width;
+}
+
+.dream-drawing{
+	padding: 15px;
+	max-width: @dream-width*.4;
+	margin: 0 auto;
+	img{
+		.border-radius(100000px);
+		box-shadow: 1px 1px 7px rgba(50,50,50,.2);
+	}
+}
+
+.dream-header{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	
+	h4{
+		margin-top: 0;
+		margin-bottom: 7px;
+	}
+	
+	hr{
+		width: 60px;
+		margin: 0px auto 90px auto;
+		border: 1px solid @dark;
+	}
+	
+	.dream-title{
+		margin: 45px 0 0px 0;
+	}
+	
+	.dream-teaser{
+		margin: 15px auto 45px auto;
+	}	
+		
+}
+
+.dream-body{
+	position: relative;
+	
+	.dream-text{
+		
+		*{
+			font-family: 'Brown' !important;
+			font-weight: 200;	
+		}
+		
+		h1,h2,h3,h4,h5,h6{
+			margin-bottom: 30px;
+		}
+		
+		li{
+			font-size: 21px;
+			width: 80%;
+		}
+		
+		p{
+			font-size: 27px;	
+			margin-bottom: 30px;
+			line-height: 1.5;
+		}			
+	}
+}
 
 /********** @RESPONSIVE *********/
 
