@@ -3087,9 +3087,9 @@ function wp_widgets_add_menu() {
  * @since 2.2.0
  */
 function wp_ob_end_flush_all() {
-	$levels = ob_get_level();
-	for ($i=0; $i<$levels; $i++)
-		ob_end_flush();
+	//$levels = ob_get_level();
+	//for ($i=0; $i<$levels; $i++)
+	//	ob_end_flush();
 }
 
 /**
