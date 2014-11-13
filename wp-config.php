@@ -80,6 +80,8 @@ define('WPLANG', '');
  */
 define('WP_DEBUG', true);
 
+define('CONCATENATE_SCRIPTS', false );
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
