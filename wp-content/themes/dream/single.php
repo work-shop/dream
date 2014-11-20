@@ -45,11 +45,11 @@
 						<hgroup class="metadata">
 						
 							<?php if ( $dream_number ) : ?>
-								<h4 class="dream-number">Dream No. <?php echo $dream_number; ?></h4>
+								<h4 class="dream-number">Dream No. &nbsp;&nbsp;&nbsp;&nbsp; <span class="italic"><?php echo $dream_number; ?></span></h4>
 							<?php endif; ?>
 							
 							<?php if ( $drawing_name ) : ?>
-								<h4 class="dream-drawing-title">Drawing <?php echo $drawing_name; ?></h4>
+								<h4 class="dream-drawing-title">Drawing &nbsp;&nbsp;&nbsp;&nbsp; <span class="italic"><?php echo $drawing_name; ?></span></h4>
 							<?php endif; ?>
 										
 							<?php if ( $dream_author || $dream_date ) : ?>

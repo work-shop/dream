@@ -46,22 +46,30 @@
 			
 </head>
 
-<body <?php body_class('loading before header-closed dreams-orbiting'); ?>>
+ <?php if (is_single()) {
+ 			$headerState = 'closed';
+ 		} else{
+ 			$headerState = 'open';		
+ 		} ?>
+
+<body <?php body_class('loading before header-. $headerState . dreams-orbiting '); ?>>
 
 	<div id="background"></div>
 
-	<header id="header" class="open">
+	<header id="header" class="<?php echo $headerState; ?>">
 
 		<div id="nav-toggle" class="off">
 			<img src="<?php bloginfo('template_directory'); ?>/_/img/toggle.png" alt="menu-toggle-icon" />
 		</div>
 		
 		<nav id="nav">
+		<a href="<?php bloginfo('site_url'); ?>">
 			<h1 id="site-title">
 			A Dream for<br/>
 			the Drawing<br/>
 			of Everything
 			</h1>
+		</a>
 			
 			<ul>
 				<li><a href="#" id="orbit-toggle" class="display-toggle nav-icon active"><span class="icon" data-icon="&#8230;

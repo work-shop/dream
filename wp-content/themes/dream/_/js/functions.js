@@ -74,7 +74,7 @@ jQuery(document).ready(function($) {
 		$('.flip-link.on').removeClass('on').addClass('off');					  			
 	});	
 	
-	$('.dream').click(function(event) {
+	$('.home .dream').click(function(event) {
 	  dreamToggle(this);	
 	});		
 	

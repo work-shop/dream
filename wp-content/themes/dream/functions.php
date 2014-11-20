@@ -3,17 +3,6 @@
 
 get_template_parts( array( 'theme-options') );
 
-
-function register_my_menus(){
-	register_nav_menus(
-	array(
-	'primary' => _( 'Main Menu' ),
-	)
-	);
-}
-add_action( 'init', 'register_my_menus');
-
-
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
 
@@ -38,62 +27,7 @@ function create_post_type() {
 			'supports' => array( 'title', 'editor', 'thumbnail' )
 		)
 	);	
-	
-	register_post_type( 'interactions',
-		array(
-			'labels' => array(
-				'name' => 'Interactions',
-				'singular_name' =>'Interaction',
-				'add_new' => 'Add New',
-			    'add_new_item' => 'Add New Interaction',
-			    'edit_item' => 'Edit Interaction',
-			    'new_item' => 'New Interaction',
-			    'all_items' => 'All Interactions',
-			    'view_item' => 'View Interaction',
-			    'search_items' => 'Search Interactions',
-			    'not_found' =>  'No Interactions found',
-			    'not_found_in_trash' => 'No Interactions found in Trash', 				
-			),
-			'public' => true,
-			'has_archive' => true,
-			'rewrite' => array('slug' => 'interactions'),
-			'supports' => array( 'title', 'editor')
-		)
-	);		
-
 }
-
-function custom_taxonomy()  {
-
-	$labels = array(
-		'name'                       => _x( 'Interaction Type', 'Taxonomy General Name', 'text_domain' ),
-		'singular_name'              => _x( 'Interaction Type', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Interaction Type', 'text_domain' ),
-		'all_items'                  => __( 'All Interaction Types', 'text_domain' ),
-		'parent_item'                => __( 'Parent Interaction Types', 'text_domain' ),
-		'parent_item_colon'          => __( 'Parent Interaction Type:', 'text_domain' ),
-		'new_item_name'              => __( 'New Interaction Type Name', 'text_domain' ),
-		'add_new_item'               => __( 'Add New Interaction Type', 'text_domain' ),
-		'edit_item'                  => __( 'Edit Interaction Type', 'text_domain' ),
-		'update_item'                => __( 'Update Interaction Type', 'text_domain' ),
-		'separate_items_with_commas' => __( 'Separate Interaction Types with commas', 'text_domain' ),
-		'search_items'               => __( 'Search Interaction Types', 'text_domain' ),
-		'add_or_remove_items'        => __( 'Add or remove Interaction Type', 'text_domain' ),
-		'choose_from_most_used'      => __( 'Choose from the most used Interaction Types', 'text_domain' ),
-	);
-	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
-	);
-	register_taxonomy( 'interaction_type', 'interactions', $args );
-
-}
-add_action( 'init', 'custom_taxonomy', 0 );
 
 function theme_scripts() {
 	wp_deregister_script( 'jquery' );
@@ -157,6 +91,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'background', 1440, 1440, true );			
 }
 
+/*
 
 function autoset_featured() {
   global $post;
@@ -176,6 +111,7 @@ add_action('draft_to_publish', 'autoset_featured');
 add_action('new_to_publish', 'autoset_featured');
 add_action('pending_to_publish', 'autoset_featured');
 add_action('future_to_publish', 'autoset_featured');
+*/
 
 
 function login_css() {
@@ -235,35 +171,32 @@ function be_hidden_meta_boxes($hidden, $screen) {
 	return $hidden;
 }
 
+		
+add_action('save_post', 'wpse51363_save_post');
 
+function wpse51363_save_post($post_id) {
 
-function interactions_relationship( $html, $post ) {
-	$terms = wp_get_post_terms( $post->ID, 'interaction_type' );
-	
-	if ( $terms ) {
+    //Check it's not an auto save routine
+     if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) 
+          return;
 
-		//$html .= '<h3>'. $terms .'</h3>';
+    //Perform permission checks! For example:
+    if ( !current_user_can('edit_post', $post_id) ) 
+          return;
 
-	}
+    //Check your nonce!
 
-	return $html;
+    //If calling wp_update_post, unhook this function so it doesn't loop infinitely
+    remove_action('save_post', 'wpse51363_save_post');
+    
+	$post_content = get_field('drawing_name',$post_id);
 
+    // call wp_update_post update, which calls save_post again. E.g:
+    wp_update_post(array('ID' => $post_id, 'post_content' => $post_content));
+
+    // re-hook this function
+    add_action('save_post', 'wpse51363_save_post');
 }
-
-
-
-
-
-add_filter(
-	'acf/fields/relationship/result/name=interaction', 
-	'interactions_relationship', 
-	10, 
-	2
-);
-
-
-
-
 
 
 define('MAGPIE_FETCH_TIME_OUT', 180);
