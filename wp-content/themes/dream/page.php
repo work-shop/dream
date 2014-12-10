@@ -11,32 +11,13 @@
 </div>
 
 <div class="page-body page-default">
-
-	<div class="row">
-	
-		<div class="col-sm-4 col-md-3 page-nav">
-			<h2 class="" >Information</h2>
-			<div class="page-menu">
-				<?php wp_nav_menu(array('menu' => 'Page Menu' )); ?>
-			</div>
-		</div>	
+	<div class="container">
+		<div class="row">
 		
-		<div class="col-sm-8 col-md-9">
-		
-			<div class="page-header">
-				<div class="">
-					<h2 ><?php the_title(); ?></h2>
-				</div>
-				<p class="page-introduction"><?php the_field('page_introduction'); ?></p>					
-			</div>
-			<div class="page-content serif">
-			
-			</div>
+			<?php get_template_part('galaxy'); ?>
 			
 		</div>
-		
 	</div>
-	
 </div>	
 
 <?php endwhile; ?>

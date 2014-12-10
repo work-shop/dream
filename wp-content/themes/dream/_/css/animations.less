@@ -1,14 +1,14 @@
 
 /********** @ANIMATIONS *********/
 
-.animation(@name: animation, @duration: 2s, @easing: ease, @delay: 0s, @iteration: 1){	
+.animation(@name: animation, @duration: 2s, @easing: linear, @delay: 0s, @iteration: 1){	
 	animation: @name @duration @easing @delay @iteration;
 	-ms-animation: @name @duration @easing @delay @iteration;
 	-webkit-animation: @name @duration @easing @delay @iteration;
 	-0-animation:move @name @duration @easing @delay @iteration;
 	-moz-animation:move @name @duration @easing @delay @iteration;
-	animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;	
+	//animation-fill-mode: forwards;
+   // -webkit-animation-fill-mode: forwards;	
 }
 
 
@@ -80,6 +80,117 @@
 }
 
 
+@galaxy-width: 50px;
+@galaxy-inner-width: @galaxy-width/4;
+@galaxy-orbit: 8px;
+@galaxy-orbit-duration: 12s;
+@galaxy-scale: .9;
+@galaxy-opacity: .75;
+
+.galaxy.on{
+	
+	width: @galaxy-width;
+	height: @galaxy-width;
+	.border-radius(50px);	
+	//.animation(orbit-galaxy, @galaxy-orbit-duration, linear, 0s, infinite);
+
+	.galaxy-outer{
+		position: relative;
+		width: inherit;
+		height: inherit;
+	}
+
+	
+	.galaxy-inner{
+		width: @galaxy-inner-width;
+		height: @galaxy-inner-width;
+		background: #f4f9ff;
+		border: 1px solid #888;
+		.border-radius(30px);
+		position: absolute;
+		
+		&.planet1{
+			width: @galaxy-width/3.75;
+			height: @galaxy-width/3.75;
+			left: 50%;
+			top: 35%;
+			.animation(orbit-galaxy-inner, @galaxy-orbit-duration*1.5, linear, 0s, infinite);	
+		}
+		
+		&.planet2{
+			width: @galaxy-width/4.25;
+			height: @galaxy-width/4.25;
+			left: 5%;
+			top: 20%;
+			.animation(orbit-galaxy-inner, @galaxy-orbit-duration*2, linear, 0s, infinite);							
+		}
+		
+		&.planet3{
+			width: @galaxy-width/3.25;
+			height: @galaxy-width/3.25;		
+			left: 15%;
+			top: 70%;
+			.animation(orbit-galaxy-inner, @galaxy-orbit-duration*2.5, linear, 0s, infinite);							
+		}				
+
+	}
+
+
+}
+
+
+@-webkit-keyframes orbit-galaxy{
+	from {
+		transform: 
+		   rotate(0deg)
+           translateX(-@galaxy-orbit)
+           rotate(0deg);
+	}
+	to {
+		transform: 
+		   rotate(360deg)
+           translateX(-@galaxy-orbit) 
+           rotate(-360deg);
+	} 
+}
+
+@-webkit-keyframes orbit-galaxy-inner{
+	from {
+		transform: 
+		   rotate(0deg)
+           translateX(-@galaxy-orbit/1.75)
+           rotate(0deg);
+	}
+	to {
+		transform: 
+		   rotate(360deg)
+           translateX(-@galaxy-orbit/1.5) 
+           rotate(-360deg);
+	} 
+}
+
+@-webkit-keyframes scale{
+	0% {
+		transform: 
+           scale(1,1);
+	}
+	50% {
+		transform: 
+           scale(@galaxy-scale,@galaxy-scale);
+	} 
+
+	100% {
+		transform: 
+           scale(1,1);
+	} 	
+	
+}
+
+
+
+
+
+
 @-webkit-keyframes orbit{
 	0% {
 		transform: 
@@ -106,7 +217,6 @@
          opacity: 1;
 	} 
 }
-
 
 @-webkit-keyframes fader{
   0% {

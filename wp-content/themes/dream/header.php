@@ -59,7 +59,7 @@
 	<header id="header" class="<?php echo $headerState; ?>">
 
 		<div id="nav-toggle" class="off">
-			<img src="<?php bloginfo('template_directory'); ?>/_/img/toggle.png" alt="menu-toggle-icon" />
+			<?php get_template_part('galaxy'); ?>
 		</div>
 		
 		<nav id="nav">
