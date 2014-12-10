@@ -78,6 +78,10 @@ jQuery(document).ready(function($) {
 	  dreamToggle(this);	
 	});		
 	
+	$('.guidepost').click(function(event) {
+		$('.sign').removeClass('off');
+	});		
+		
 
 });//end document.ready
 
@@ -106,7 +110,18 @@ $(window).resize(function() {
 $(window).scroll(function() { 
 
 	if($('body').hasClass('dream-active') || $('body').hasClass('single')){
-		parallax();	
+		//parallax();	
+	}
+	
+	if($('body').hasClass('single')){
+		var guidepostOffset = $('.guidepost').offset();
+		var guidepostOffsetTop =  guidepostOffset.top;	
+		console.log(guidepostOffsetTop);						
+
+		if($(window).scrollTop() + 700 >= guidepostOffsetTop){
+			$('.sign').removeClass('off');		
+			console.log($(window).scrollTop());
+		}
 	}
 
 });//end window.scroll

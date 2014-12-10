@@ -264,7 +264,7 @@ body{
 }
 
 .brown{
-	font-family: 'Brown';
+	font-family: 'Tisa Pro';
 }
 
 a{
@@ -848,8 +848,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', end
 	.dream-text{
 		
 		*{
-			font-family: 'Brown' !important;
-			font-weight: 200;	
+			font-family: 'Akkurat Pro' !important;
+			font-weight: 300;	
 		}
 		
 		h1,h2,h3,h4,h5,h6{
@@ -863,17 +863,55 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', end
 		
 		p{
 			font-size: 24px;	
-			margin-bottom: 1.5em;
-			line-height: 1.5;
+			margin-bottom: 1.25em;
+			line-height: 1.6;
 		}			
 	}
 }
+
+.guidepost{
+	padding-top: 100px;	
+
+.sign{
+	.transition(all,4.5s);
+	-webkit-transform: translate(0px,0px) rotate(0deg);	
+	text-align: center;
+	
+	&.off{
+		opacity: .05;
+	}
+	
+	&.sign1.off{
+		-webkit-transform: translate(-150px,70px) rotate(30deg);	
+	}
+	
+	&.sign2.off{
+		-webkit-transform: translate(-12px,-80px) rotate(20deg);	
+	}
+	
+	&.sign3.off{
+		-webkit-transform: translate(-190px,130px) rotate(140deg);	
+	}	
+	
+	a{
+		font-size: 21px;
+		//display: inline-block;
+		padding: 5px;	
+		
+		&:hover{
+			text-decoration: underline;
+		}	
+	}	
+
+}
+	
+}
+
 
 /********** @RESPONSIVE *********/
 
 //1200px
 @media (max-width: 1200px) {
-
 
 h1{
 	font-size: 54px;

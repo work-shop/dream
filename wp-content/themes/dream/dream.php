@@ -1,67 +1,84 @@
-	<article class="dream " style="<?php echo arr_format_translate( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
-	
-		<div class="dream-inner">
-	
-			<a href="#<?php echo $post->post_name; ?>" >
-	
-				<?php if (has_post_thumbnail()) : ?> 	
-				<div class="dream-drawing" style="<?php echo arr_format_size( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
-					<?php the_post_thumbnail('drawing') ?>
-				</div>
-				
-				<div class="hover-info">
-					<?php if ( $dream_number ) : ?><h4 class="dream-number hidden">Dream No. <?php echo $dream_number; ?></h4><?php endif; ?>
-					<h4 class="dream-title hidden"><?php the_title(); ?></h4>
-					<h4 class="excerpt italic">Chemistry is a sort of dream. Or a code anyway.</h4>						
-				</div>
-									
-				<?php endif; ?>
-				
-				<div class="dream-body">
-		
-					<div class="dream-info">
+<?php
+			$id = get_the_ID();
 			
-						<hgroup class="title">
+			$dream_number = get_field('dream_number', $id );
+			$drawing_name = get_field('drawing_name', $id );
+			$dream_author = get_field('dream_author', $id );
+			$dream_date = get_field('dream_date', $id );
+			$dream_teaser = get_field('dream_teaser', $id );
+			
+			$dream_template = get_field('dream_template', $id );
+			$light_or_dark = get_field('light_or_dark', $id );	
+			
+			?>	
+	
+			<article class="dream <?php echo $dream_template . ' ' . $light_or_dark; ?>" id="dream-<?php echo $id; ?>">	
+				
+				<?php if($dream_template == 'template-background'): ?>
+					<?php $background_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'background' ); ?>
+					<div class="dream-background-image" style="background-image: url('<?php echo $background_image_url[0]; ?>')">				
+						<?php // the_post_thumbnail('background'); ?>
+					</div>
+				<?php endif; ?>						
+				
+				<div class="dream-background">				
+					
+				</div>	
+											
+				
+				<div class="dream-inner">
+									
+					<div class="dream-drawing">
+						
+						<?php the_post_thumbnail('drawing'); ?>
+					
+					</div>
+					
+					<div class="dream-header centered">
+						
+						<hgroup class="metadata">
+						
 							<?php if ( $dream_number ) : ?>
-							<h4 class="dream-number">Dream No. <?php echo $dream_number; ?></h4>
+								<h4 class="dream-number">Dream No. &nbsp;&nbsp; <span class=""><?php echo $dream_number; ?></span></h4>
+							<?php endif; ?>
+							
+							<?php if ( $drawing_name ) : ?>
+								<h4 class="dream-drawing-title">Drawing &nbsp;&nbsp; <span class=""><?php echo $drawing_name; ?></span></h4>
 							<?php endif; ?>
 										
-						<hgroup class="metadata">
-							<?php if ( $dream_length ) : ?><h4 class="dream-length"><?php echo $dream_length; ?> words &nbsp;&nbsp;&nbsp;&nbsp;<?php endif; ?>
-							<?php if ( $dream_author ) : ?>Written by <?php echo $dream_author; ?> &nbsp;&nbsp;&nbsp;&nbsp;<?php endif; ?>
-							<?php if ( $dream_date ) : ?><?php echo $dream_date; ?><?php endif; ?>
-							<?php if ( $dream_drawing_title ) : ?><h4 class="dream-drawing-title">Drawing: <?php echo $dream_drawing_title; ?></h4><?php endif; ?>
+							<?php if ( $dream_author || $dream_date ) : ?>
+								<h4><?php echo $dream_author; ?>  &nbsp;&nbsp;• &nbsp;&nbsp; <?php echo $dream_date; ?></h4>
+							<?php endif; ?>
+							
 						</hgroup>
 						
-							<h2 class="dream-title"><?php the_title(); ?></h2>
-						</hgroup>
-
-						<hr class="hidden"/>
-						
-						<h4 class="excerpt italic">Chemistry is a sort of a dream. Or a code anyway.</h4>		
+						<h1 class="dream-title"><?php the_title(); ?></h1>
+						<h3 class="dream-teaser italic"><?php echo $dream_teaser; ?></h3>
 						
 						<hr />				
 									
 					</div>
-				
-					<div class="dream-text">
+					
+					<div class="dream-body">
+					
+						<div class="row">
 						
-						<div class="container">
-							<div class="row">			
-						
-								<div class="dream-text-inner serif ">
-									<?php the_field('dream_text'); ?>
-								</div>
+							<div class="col-sm-12 col-md-8 col-md-offset-2 dream-text-column dream-text brown">
 								
-							</div>				
-						</div>
+								<?php the_content(); ?>
+								
+								<?php get_template_part('guidepost'); ?>
+
+							
+							</div>
+							
+							<div class="col-sm-4 col-sm-offset-8 col-md-offset-0 col-md-2 dream-sidenote-column dream-sidenotes">
+							</div>							
 						
+						</div>
+					
 					</div>
 				
 				</div>
-				
-			</a>
-			
-		</div><!--inner-->
-
-	</article>
+	
+			</article>

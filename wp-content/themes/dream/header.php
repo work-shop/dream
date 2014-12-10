@@ -45,14 +45,14 @@
 	<?php wp_head(); ?>
 			
 </head>
-
- <?php if (is_single()) {
- 			$headerState = 'closed';
+ 		
+  <?php if (is_single()) {
+ 			$headerState = 'loading before header-closed dreams-orbiting';
  		} else{
- 			$headerState = 'open';		
- 		} ?>
+ 			$headerState = 'loading before header-open dreams-orbiting';		
+ 	} ?>		
 
-<body <?php body_class('loading before header-. $headerState . dreams-orbiting '); ?>>
+<body <?php body_class($headerState); ?>>
 
 	<div id="background"></div>
 
@@ -65,9 +65,9 @@
 		<nav id="nav">
 		<a href="<?php bloginfo('site_url'); ?>">
 			<h1 id="site-title">
-			A Dream for<br/>
-			the Drawing<br/>
-			of Everything
+			A &nbsp;&nbsp;Dream &nbsp; of<br/>
+			the &nbsp; Drawing<br/>
+			for Everything
 			</h1>
 		</a>
 			
