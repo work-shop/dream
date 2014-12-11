@@ -241,13 +241,13 @@ function dreamToggle(dream) {
 	}
 
 	if(!bodyState){
-		$('body').removeClass('orbiting');	
+		$('body').removeClass('dreams-orbiting');	
 		$('body').addClass('dream-active');	
 		$(dream).addClass('active');
 		bodyState = true;
 	}
 	else if (bodyState) {
-		$('body').addClass('orbiting');	
+		$('body').addClass('dreams-orbiting');	
 		$('body').removeClass('dream-active');	
 		$(dream).removeClass('active');
 		bodyState = false;	

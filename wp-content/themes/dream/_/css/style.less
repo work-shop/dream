@@ -1,10 +1,4 @@
-
-
 @import "animations.less";
-
-*{
-	//font-family: 'Brown' !important;
-}
 
 /********** @VARIABLES *********/
 
@@ -534,20 +528,23 @@ body.dream-active{
 }
 
 
-@duration: 3s;
+
+
+
+@duration: 6s;
 
 .home{
 
 	#dreams{
 		position: relative;
 		overflow: scroll;
-		background: aqua;
 	}
 	
 	.dream{
 		width: 300px;
-		height: auto;
-		max-height: 350px;
+		min-height: 300px;
+		//max-height: 300px;		
+		//height: 300px;
 		padding: 0px;
 		position: absolute;	
 		margin-left: -150px;
@@ -580,19 +577,25 @@ body.dream-active{
 		
 		.dream-inner{
 			width: 90%;
-			max-width: 12	00px;
+			max-width: 1200px;
 			height: 100%;
 			margin: 50px auto 0 auto;
 		}
 		
 		.dream-content{
+			.transition(all,@duration);
 			position: relative;
+			height: 0;
 			top: 1000px;	
+			padding-bottom: 600px;
+			
 		}
 		
 		//ACTIVE DREAM
 		&.active{
 			width: 100%;
+			min-height: 300px;
+			height: auto;
 			max-height: none;		
 			top: 0 !important;
 			left: 0 !important;
@@ -634,10 +637,9 @@ body.dream-active{
 			}
 			
 			.dream-content{
+				height: auto;
 				top: 0;
-				.transition(top,@duration);				
 				-webkit-transform: translate3d(0,0,1px);
-				padding-bottom: 600px;
 			}
 					
 		}

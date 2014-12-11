@@ -29,6 +29,7 @@
 
 		$q = new WP_Query( array(
 			'post_type' => 'dreams',
+			'dream_categories'=> 'featured',
 			'posts_per_page' => $population
 
 		) );
@@ -68,7 +69,11 @@
 	?>
 	
 
-	<article class="dream <?php echo 'dream' . $i . ' ' . $dream_template . ' ' . $light_or_dark; ?>" style="<?php  echo arr_format_translate( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">		
+	<article class="dream <?php echo 'dream' . $i . ' ' . $dream_template . ' ' . $light_or_dark; ?>" 
+	style="<?php  
+		echo arr_format_translate( $fixed_vals[ $i % count( $fixed_vals ) ] );  
+		// echo arr_format_size( $fixed_vals[ $i % count( $fixed_vals ) ] ); 
+	?>">		
 		
 		<div class="dream-background"></div><!--dream-background-->
 		
@@ -76,7 +81,7 @@
 			
 			<a class="dream-link" href="#<?php echo $post->post_name; ?>" >
 	
-				<div class="dream-drawing" style="<?php echo  arr_format_size( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>">
+				<div class="dream-drawing">
 				
 					<?php if (has_post_thumbnail()) { ?> 
 						<?php the_post_thumbnail('drawing') ?>

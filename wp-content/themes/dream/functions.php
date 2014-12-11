@@ -29,6 +29,21 @@ function create_post_type() {
 	);	
 }
 
+
+function dreams_taxonomy() {  
+   register_taxonomy(  
+    'dream_categories',  
+    'dreams',  
+    array(  
+        'hierarchical' => true,  
+        'label' => 'Dream Categories',  
+        'query_var' => true,  
+        'rewrite' => array('slug' => 'dream_categories')  
+    )  
+);  
+}
+add_action( 'init', 'dreams_taxonomy' );  
+
 function theme_scripts() {
 	wp_deregister_script( 'jquery' );
     
