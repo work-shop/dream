@@ -7,8 +7,8 @@
 	-webkit-animation: @name @duration @easing @delay @iteration;
 	-0-animation:move @name @duration @easing @delay @iteration;
 	-moz-animation:move @name @duration @easing @delay @iteration;
-	//animation-fill-mode: forwards;
-   // -webkit-animation-fill-mode: forwards;	
+	animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;	
 }
 
 
@@ -19,6 +19,10 @@
 @orbitDistance: 20px;
 
 .dreams-orbiting{
+
+	.dream{
+		-webkit-transform: scale(.8);
+	}
 	
 	.dream0{
 		.dream-drawing{
@@ -188,33 +192,20 @@
 
 
 
-
-
-
 @-webkit-keyframes orbit{
-	0% {
+	from {
 		transform: 
 		   rotate(0deg)
-           translate(-10px)
+           translateX(-10px)
            rotate(0deg)
-           scale(1,1);
-         opacity: 1;
+           scale(.8);
 	}
-	50% {
-		transform: 
-		   rotate(180deg)
-           translate(-10px) 
-           rotate(-180deg)
-           scale(.8,.8);
-         //opacity: .5;
-	} 	
-	100% {
+	to {
 		transform: 
 		   rotate(360deg)
-           translate(-10px) 
+           translateX(-10px) 
            rotate(-360deg)
-           scale1(1,1);
-         opacity: 1;
+           scale(1);
 	} 
 }
 

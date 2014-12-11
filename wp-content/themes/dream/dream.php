@@ -23,8 +23,7 @@
 				
 				<div class="dream-background">				
 					
-				</div>	
-											
+				</div>						
 				
 				<div class="dream-inner">
 									
@@ -34,7 +33,9 @@
 					
 					</div>
 					
-					<div class="dream-header centered">
+					<div class="dream-content">								
+						
+						<div class="dream-header centered">
 						
 						<hgroup class="metadata">
 						
@@ -58,8 +59,8 @@
 						<hr />				
 									
 					</div>
-					
-					<div class="dream-body">
+						
+						<div class="dream-body">
 					
 						<div class="row">
 						
@@ -77,6 +78,8 @@
 						
 						</div>
 					
+					</div>
+						
 					</div>
 				
 				</div>

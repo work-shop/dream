@@ -78,6 +78,11 @@ jQuery(document).ready(function($) {
 	  dreamToggle(this);	
 	});		
 	
+	$('.dream-toggle').click(function(event) {
+	  	event.preventDefault();
+		dreamToggle($('.dream.active'));
+	});		
+	
 	$('.guidepost').click(function(event) {
 		$('.sign').removeClass('off');
 	});		

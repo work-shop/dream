@@ -48,15 +48,18 @@
  		
   <?php if (is_single()) {
  			$headerState = 'loading before header-closed dreams-orbiting';
+ 			$headerStateForHeader = 'closed';
+ 			
  		} else{
- 			$headerState = 'loading before header-open dreams-orbiting';		
+ 			$headerState = 'loading before header-open dreams-orbiting';
+ 			$headerStateForHeader = 'open'; 					
  	} ?>		
 
 <body <?php body_class($headerState); ?>>
 
 	<div id="background"></div>
 
-	<header id="header" class="<?php echo $headerState; ?>">
+	<header id="header" class="<?php echo $headerStateForHeader; ?>">
 
 		<div id="nav-toggle" class="off">
 			<?php get_template_part('galaxy'); ?>
@@ -75,10 +78,10 @@
 				<li><a href="#" id="orbit-toggle" class="display-toggle nav-icon active"><span class="icon" data-icon="&#8230;
 "></span></a></li>					
 				<li><a href="#" id="grid-toggle" class="display-toggle nav-icon"><span class="icon" data-icon="&Acirc;"></span></a></li>		
-				<li><a href="#" id="number-toggle" class="display-toggle nav-icon"><span class="" data-icon="">1</span></a></li>								
-				<li><a href="#">about</a></li>
-				<li><a href="#">contact</a></li>
-				<li><a href="#">famous dreams</a></li>
+				<li><a href="#" id="number-toggle" class="display-toggle nav-icon"><span class="" data-icon="">1</span></a></li>	
+				<li><a href="#archive" class="jump">archive</a></li>											
+				<li><a href="#about">about</a></li>
+				<li><a href="#contact">contact</a></li>
 				
 			</ul>
 		
@@ -86,6 +89,10 @@
 
 	</header>
 	
-	<div id="headerfix"></div>
-		
+	<div id="close">
+		<a href="#close" class="display-block dream-toggle close-link centered">
+			<span class="icon" data-icon="&#8217;"></span>
+		</a> 
+	</div>	
+			
 	<div id="content">
