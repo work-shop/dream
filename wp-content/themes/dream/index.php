@@ -132,9 +132,10 @@
 								
 								<?php the_content(); ?>
 								
+								<hr/>
+								
 								<?php get_template_part('guidepost'); ?>
 
-							
 							</div>
 							
 							<div class="col-sm-4 col-sm-offset-8 col-md-offset-0 col-md-2 dream-sidenote-column dream-sidenotes">

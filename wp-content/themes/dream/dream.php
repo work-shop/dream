@@ -68,8 +68,9 @@
 								
 								<?php the_content(); ?>
 								
+								<hr class="closing" />								
+								
 								<?php get_template_part('guidepost'); ?>
-
 							
 							</div>
 							

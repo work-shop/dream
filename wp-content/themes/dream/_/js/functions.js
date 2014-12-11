@@ -86,6 +86,22 @@ jQuery(document).ready(function($) {
 	$('.guidepost').click(function(event) {
 		$('.sign').removeClass('off');
 	});		
+	
+	$('#dreams').scroll(function() { 
+		console.log('dreams scroll');
+		
+		if($('body').hasClass('dream-active') ){
+			var guidepostOffset = $('.dream.active .guidepost').offset();
+			var guidepostOffsetTop =  guidepostOffset.top;	
+			console.log(guidepostOffsetTop);						
+	
+		if($('#dreams').scrollTop() - 600 >= guidepostOffsetTop){
+			$('.sign').removeClass('off');		
+			console.log($('#dreams').scrollTop());
+		}
+	}
+
+});//end window.scroll	
 		
 
 });//end document.ready
@@ -118,7 +134,7 @@ $(window).scroll(function() {
 		//parallax();	
 	}
 	
-	if($('body').hasClass('single')){
+	if($('body').hasClass('single') || $('body').hasClass('dream-active') ){
 		var guidepostOffset = $('.guidepost').offset();
 		var guidepostOffsetTop =  guidepostOffset.top;	
 		console.log(guidepostOffsetTop);						
@@ -130,6 +146,7 @@ $(window).scroll(function() {
 	}
 
 });//end window.scroll
+
 
 
 function goToByScroll(locale){

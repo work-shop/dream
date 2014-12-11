@@ -47,7 +47,7 @@
 </head>
  		
   <?php if (is_single()) {
- 			$headerState = 'loading before header-closed dreams-orbiting';
+ 			$headerState = 'loading before header-closed';
  			$headerStateForHeader = 'closed';
  			
  		} else{
