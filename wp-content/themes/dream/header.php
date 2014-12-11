@@ -79,6 +79,7 @@
 "></span></a></li>					
 				<li><a href="#" id="grid-toggle" class="display-toggle nav-icon"><span class="icon" data-icon="&Acirc;"></span></a></li>		
 				<li><a href="#" id="number-toggle" class="display-toggle nav-icon"><span class="" data-icon="">1</span></a></li>	
+				<li><a href="#archive" class="jump">famous dreams</a></li>															
 				<li><a href="#archive" class="jump">archive</a></li>											
 				<li><a href="#about">about</a></li>
 				<li><a href="#contact">contact</a></li>

@@ -23,7 +23,7 @@
 .dreams-orbiting{
 
 	.dream{
-		-webkit-transform: scale(.8);
+		//-webkit-transform: scale(.8);
 	}
 	
 	.dream0{
@@ -199,36 +199,16 @@
 		transform: 
 		   rotate(0deg)
            translateX(-10px)
-           rotate(0deg)
-           scale(.8);
+           rotate(0deg);
+           //scale(.8);
 	}
 	to {
 		transform: 
 		   rotate(360deg)
            translateX(-10px) 
-           rotate(-360deg)
-           scale(1);
+           rotate(-360deg);
+           //scale(1);
 	} 
-}
-
-@-webkit-keyframes fader{
-  0% {
-	opacity: .25;  
-	color: @faderColor;  
-	}
-  33% {
-	opacity: 1;
-	color: white;
-  }
-  66% {
-	opacity: .25;  
-	color: @faderColor;  
-	} 
-  100% {
-	opacity: 1;
-	color: white;
-  }	
-	  
 }
 
 

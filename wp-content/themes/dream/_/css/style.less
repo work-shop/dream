@@ -503,7 +503,7 @@ body.dream-active{
 	}
 	
 	.dream{
-		opacity: .2;
+		opacity: .1;
 		position: fixed;
 		
 		&.active{
@@ -537,7 +537,7 @@ body.dream-active{
 
 
 
-@duration: 6s;
+@duration: 4s;
 
 .home{
 
@@ -547,14 +547,12 @@ body.dream-active{
 	}
 	
 	.dream{
-		width: 300px;
-		min-height: 300px;
-		//max-height: 300px;		
+		width: 250px;
+		min-height: 350px;
+		max-height: 350px;		
 		//height: 300px;
 		padding: 0px;
-		position: absolute;	
-		margin-left: -150px;
-		margin-top: -150px;		
+		position: absolute;		
 		.transition(all,@duration);
 		overflow: hidden;	
 		
@@ -609,8 +607,6 @@ body.dream-active{
 			max-height: none;		
 			top: 0 !important;
 			left: 0 !important;
-			margin-left: 0;
-			margin-top: 0;	
 			
 			&.light{
 				.dream-background{
@@ -730,7 +726,8 @@ body.dream-active{
 		}
 		
 		p{
-			font-size: 21px;	
+			font-size: 23px;
+			margin-bottom: 2.55em;	
 		}	
 		
 		a{
@@ -773,8 +770,7 @@ body.dream-active{
 		text-align: center;
 		position: relative;	
 		right: 0px;	
-		top: 0px;
-		
+		top: 0px;	
 		
 		&.off{
 			opacity: .05;
@@ -787,9 +783,13 @@ body.dream-active{
 			}
 		
 			&:hover{
-				right: 10px;
-			}					
-				
+				right: 5px;
+			}				
+			a:before{
+					margin-right: 10px;
+				    content: 'Û';
+				    font-family: "modern_pictograms_proregular";			    
+				}																
 		}
 		
 		&.sign2{
@@ -799,8 +799,8 @@ body.dream-active{
 			}	
 
 			&:hover{
-				top: 10px;
-			}				
+				top: 5px;
+			}			
 			
 		}
 		
@@ -810,15 +810,21 @@ body.dream-active{
 			}
 			
 			&:hover{
-				right: -10px;
-			}				
-				
+				right: -5px;
+			}
+			a:after{
+				margin-left: 10px;
+			    content: 'Ú';
+			    font-family: "modern_pictograms_proregular";			    
+			}									
 		}	
 			
 		a{
 			font-size: 21px;
 			text-decoration: none;
-			padding: 5px;	
+			padding: 20px;
+			display: block;
+
 		}	
 	
 	}

@@ -156,6 +156,8 @@
 	<?php $i++; endwhile; ?>
 
 	<?php endif; ?>
+	
+	<?php wp_reset_query(); ?>
 
 </section>
 
@@ -168,6 +170,45 @@
 				<h1 class="">Archive</h1>
 			</div>
 			
+			<div id="archive-filters" class="col-sm-8">
+				<h3>filters</h3>
+			</div>
+			
+			<div id="search" class="col-sm-4">
+				<h3>search</h3>
+			</div>		
+			
+		</div>
+		
+		<div class="row" id="archive-container">	
+			
+			<?php
+			$q2 = new WP_Query( array(
+				'post_type' => 'dreams',
+				'posts_per_page' => 5
+			) );	
+			
+			if ( $q2->have_posts() ) :	
+				$j = 0;
+				
+				$n = $q2->found_posts;
+				
+				
+				
+				while ( $q2->have_posts() ) : 
+
+					$q2->the_post(); ?>
+				
+					<article class="col-sm-4 archive-dream">
+						<h3><?php the_title(); ?></h3>
+					</article>
+						
+				<?php $j++; endwhile; ?>
+			<?php endif; ?>
+	<?php wp_reset_query(); ?>
+			
+			
+						
 		</div>
 	</div>
 
