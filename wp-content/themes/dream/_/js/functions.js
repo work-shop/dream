@@ -97,11 +97,9 @@ jQuery(document).ready(function($) {
 		if($('body').hasClass('dream-active') ){
 			var guidepostOffset = $('.dream.active .guidepost').offset();
 			var guidepostOffsetTop =  guidepostOffset.top;	
-			console.log(guidepostOffsetTop);						
 	
-		if($('#dreams').scrollTop() - 600 >= guidepostOffsetTop){
+		if($('#dreams').scrollTop() - 500 >= guidepostOffsetTop){
 			$('.sign').removeClass('off');		
-			console.log($('#dreams').scrollTop());
 		}
 	}
 
@@ -254,7 +252,7 @@ function headerToggle() {
 
 function dreamToggle(dream) {
 
-	$('.dream').removeClass('active');
+	//$('.dream').removeClass('active');
 	
 	if ($('#header').hasClass('open')) {
 		$('#header').removeClass('open');
@@ -262,8 +260,8 @@ function dreamToggle(dream) {
 	}
 	
 	cw = $(window).width();
-
-
+	var eh = $(dream).height();
+	
 	if(!bodyState){
 
 		$('body').removeClass('dreams-orbiting');	
@@ -273,13 +271,10 @@ function dreamToggle(dream) {
 		    width: cw,
 		    left: "0%",
 		    top: "0%"
-		  }, 5000, function() {
+		  }, 4000, function() {
 		    console.log('animation complete, width: ' + cw);
 		  });			
-/*
-		var eh = $(dream).css();
-		$(dream).css('height',eh);
-*/
+
 		bodyState = true;			
 	}
 	else if (bodyState) {
@@ -287,10 +282,10 @@ function dreamToggle(dream) {
 		$('body').addClass('dreams-orbiting');	
 		$('body').removeClass('dream-active');	
 		$(dream).removeClass('active');
-/*
-		var eh = $(dream).height();
-		$(dream).css('height',eh);
-*/		
+
+		console.log(eh);
+		$(dream).css('height',eh);	
+
 		var w = $(dream).data('width');
 		var l = $(dream).data('left');
 		var l = l +"%";
@@ -300,14 +295,15 @@ function dreamToggle(dream) {
 		var h = w + 150;		
 		
 		$(dream).animate({
-		    width: w+'px',
-		    height: h+'px',
+		    width: w,
+		    height: h,
 		    left: l,
 		    top: t
-		  }, 5000, function() {
+		  }, 4000, function() {
 		    console.log('animation complete');
 		  });		
-		  
+
+			  
 		bodyState = false;		
 
 				
@@ -391,7 +387,7 @@ function parallax(element){
 
 	console.log('parallax');
 
-	var body = $(element);
+	var body = element;
 	var pElement = $('.dream-content');
 	var pElement2 = $('.dream-background-image');	
 	
@@ -413,8 +409,8 @@ function parallax(element){
 	var pNum2 = -1*pNumTemp/2 + 'px';
 	
 	pElement.css('top', pNum );
-	pElement2.css('top', pNum2 );
-	pElement2.css('left', pNum2 );
+	//pElement2.css('top', pNum2 );
+	//pElement2.css('left', pNum2 );
 	
 	//requestAnimationFrame(parallax); 
 
