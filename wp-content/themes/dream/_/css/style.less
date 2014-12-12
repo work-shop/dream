@@ -544,13 +544,10 @@ body.dream-active{
 	}
 	
 	.dream{
-		background: yellow;
 		min-width: 50px;
-		max-width: 300px;
-		padding: 0px;
 		position: absolute;		
 		overflow: hidden;
-		.transition(all,@duration);					
+		.transition(opacity,@duration);	
 		
 		.dream-link{
 			text-decoration: none;
@@ -558,8 +555,8 @@ body.dream-active{
 	
 		.dream-drawing{		
 			.transition(all,@duration);
+			width: 100%;
 			min-width: 50px;
-			max-width: 300px;
 			margin: 0 auto;
 			
 			img{
@@ -598,18 +595,13 @@ body.dream-active{
 			height: 0;
 			top: 1000px;	
 			padding-bottom: 500px;
-			
 		}
 		
 		//ACTIVE DREAM
 		&.active{
-			width: 100% !important;
-			max-width: none;
-			//min-height: 300px;
 			height: auto !important;
-			max-height: none;		
-			top: 0 !important;
-			left: 0 !important;
+			max-width: 100%;
+			overflow: visible !important;
 			
 			&.light{
 				.dream-background{

@@ -89,6 +89,10 @@ jQuery(document).ready(function($) {
 	
 	$('#dreams').scroll(function() { 
 		console.log('dreams scroll');
+	
+		if($('body').hasClass('dream-active') || $('body').hasClass('single')){
+			parallax($('#dreams'));	
+		}	
 		
 		if($('body').hasClass('dream-active') ){
 			var guidepostOffset = $('.dream.active .guidepost').offset();
@@ -130,8 +134,8 @@ $(window).resize(function() {
 
 $(window).scroll(function() { 
 
-	if($('body').hasClass('dream-active') || $('body').hasClass('single')){
-		//parallax();	
+	if($('body').hasClass('single')){
+		parallax($('body'));	
 	}
 	
 	if($('body').hasClass('single') || $('body').hasClass('dream-active') ){
@@ -256,19 +260,57 @@ function dreamToggle(dream) {
 		$('#header').removeClass('open');
 		$('#header').addClass('closed');	
 	}
+	
+	cw = $(window).width();
+
 
 	if(!bodyState){
+
 		$('body').removeClass('dreams-orbiting');	
 		$('body').addClass('dream-active');	
 		$(dream).addClass('active');
-		bodyState = true;
+		$(dream).animate({
+		    width: cw,
+		    left: "0%",
+		    top: "0%"
+		  }, 5000, function() {
+		    console.log('animation complete, width: ' + cw);
+		  });			
+/*
+		var eh = $(dream).css();
+		$(dream).css('height',eh);
+*/
+		bodyState = true;			
 	}
 	else if (bodyState) {
+
 		$('body').addClass('dreams-orbiting');	
 		$('body').removeClass('dream-active');	
 		$(dream).removeClass('active');
-		bodyState = false;	
-					
+/*
+		var eh = $(dream).height();
+		$(dream).css('height',eh);
+*/		
+		var w = $(dream).data('width');
+		var l = $(dream).data('left');
+		var l = l +"%";
+		var t = $(dream).data('top');
+		var t = t +"%";
+		var w = cw*(w/100);	
+		var h = w + 150;		
+		
+		$(dream).animate({
+		    width: w+'px',
+		    height: h+'px',
+		    left: l,
+		    top: t
+		  }, 5000, function() {
+		    console.log('animation complete');
+		  });		
+		  
+		bodyState = false;		
+
+				
 	}
 	
 }
@@ -298,15 +340,17 @@ function dreamSize(){
 	cw = $(window).width();
 	
 	dreams.each(function(i){
-		var percent = $(this).data('width');
-		var left = $(this).data('left');
-		var top = $(this).data('top');
+		var w = $(this).data('width');
+		var l = $(this).data('left');
+		var l = l +"%";
+		var t = $(this).data('top');
+		var t = t +"%";
 		
-		var size = cw*(percent/100);
-		$(this).css('width',size);
-		$(this).css('height',size+150);		
-		$(this).css('top',top + "%");
-		$(this).css('left',left + "%");			
+		w = cw*(w/100);
+		$(this).css('width',w+'px');
+		$(this).css('height',w+150+'px');		
+		$(this).css('top',t);
+		$(this).css('left',l);			
 	});	
 }
 
@@ -343,12 +387,12 @@ function loadElements(){
 		
 }
 
-function parallax(){
+function parallax(element){
 
 	console.log('parallax');
 
-	var body = $('body');
-	var pElement = $('.dream-body');
+	var body = $(element);
+	var pElement = $('.dream-content');
 	var pElement2 = $('.dream-background-image');	
 	
 	var pTravel = 50;
