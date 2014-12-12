@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 	});
 
 
-	$('#nav-toggle').click(function(event) {
+	$('#nav-toggle.active').click(function(event) {
 	  	event.preventDefault();
 		navToggle();
 	});
@@ -280,13 +280,34 @@ function view(){
 	ch = $(window).height();
 	cw = $(window).width();
 	
+	dreamSize();
+		
 	$(".block.crop").css('min-height',ch);
 	$(".block.crop").css('width',cw);
+	$(".block.min").css('min-height',ch);
+	
 	
 	if(!loaded){
 		loadElements();
 	}
 				
+}
+
+function dreamSize(){
+	var dreams = $('.dream');
+	cw = $(window).width();
+	
+	dreams.each(function(i){
+		var percent = $(this).data('width');
+		var left = $(this).data('left');
+		var top = $(this).data('top');
+		
+		var size = cw*(percent/100);
+		$(this).css('width',size);
+		$(this).css('height',size+150);		
+		$(this).css('top',top + "%");
+		$(this).css('left',left + "%");			
+	});	
 }
 
 

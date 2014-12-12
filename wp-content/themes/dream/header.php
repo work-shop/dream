@@ -61,8 +61,14 @@
 
 	<header id="header" class="<?php echo $headerStateForHeader; ?>">
 
-		<div id="nav-toggle" class="off">
-			<?php get_template_part('galaxy'); ?>
+		<div id="nav-toggle" class="off <?php if (is_home()) : echo 'active'; endif; ?>">
+			<?php if(is_home()){ 
+				get_template_part('galaxy'); 
+			} else{ ?>
+				<a href="<?php bloginfo('url'); ?>">
+					<?php get_template_part('galaxy'); ?>
+				</a>			
+			<?php } ?>
 		</div>
 		
 		<nav id="nav">

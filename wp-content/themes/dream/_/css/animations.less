@@ -7,66 +7,73 @@
 	-webkit-animation: @name @duration @easing @delay @iteration;
 	-0-animation:move @name @duration @easing @delay @iteration;
 	-moz-animation:move @name @duration @easing @delay @iteration;
-/*
 	animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;	
-*/
+
 }
 
 
 
 @faderColor: #d7d7d7;
-@orbitDuration: 45s;
+@orbitDuration: 20s;
 
-@orbitDistance: 20px;
+@orbitDistance: 15px;
 
 .dreams-orbiting{
 
 	.dream{
-		//-webkit-transform: scale(.8);
+		-webkit-transform:  translateX(-10px);
 	}
+
 	
 	.dream0{
-		.dream-drawing{
+
 			.animation(orbit, 12s, linear, 4s, infinite);
-		}	
+	
 	}
 	
 	.dream1{
-		.dream-drawing{
+
 			.animation(orbit, 16s, linear, 5s, infinite);
-		}	
+	
 	}
 	
 	.dream2{
-		.dream-drawing{
+	
 			.animation(orbit, 12s, linear, 6s, infinite);
-		}	
+
 	}
 	
 	.dream3{
-		.dream-drawing{
+		
 			.animation(orbit, 8s, linear, 5s, infinite);
-		}	
+	
 	}
 	
 	.dream4{
-		.dream-drawing{
+		
 			.animation(orbit, 18s, linear, 7s, infinite);
-		}	
+	
 	}
 	
 	.dream5{
-		.dream-drawing{
+		
 			.animation(orbit, 12s, linear, 8s, infinite);
-		}	
+	
 	}
 	
 	.dream6{
-		.dream-drawing{
+		
 			.animation(orbit, 20s, linear, 4s, infinite);
-		}	
+		
 	}
+	
+	.dream7{
+		
+			.animation(orbit, 18s, linear, 4s, infinite);
+		
+	}	
+
 
 }
 
@@ -80,7 +87,7 @@
 }
 */
 
-.dream-active .dream-drawing{
+.dream-active .dream{
 	 -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
 	 animation-play-state: paused;	
 }
@@ -211,4 +218,12 @@
 	} 
 }
 
+
+
+@-webkit-keyframes widthy{
+	100% {
+		width: 100%;
+	}
+
+}
 

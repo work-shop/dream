@@ -7,14 +7,27 @@
 		return 'width: '.$dim.'%; height:'.$dim.'%; transform: translate('.$top.'%, '.$left.'%;);';
 	}
 
+/*
 	function arr_format_translate( $array ) {
-		return 'top:'.$array[1].'%; left:'.$array[2].'%;';
+		return 'left:'.$array[1].'%; top:'.$array[2].'%;';
+	}
+*/
+	
+	function arr_format_translate( $array ) {
+		return 'data-left="'.$array[1].'" data-top="'.$array[2].'"';
 	}
 	
+/*
 	function arr_format_size( $array ) {
 		//return 'width:'.$array[0].'%; height:'.$array[0].'%;';
 		return 'width:'.$array[0].'%;';
 	}	
+*/
+	
+	function arr_format_size( $array ) {
+		//return 'width:'.$array[0].'%; height:'.$array[0].'%;';
+		return $array[0];
+	}		
 	
 ?>
 
@@ -24,7 +37,7 @@
 	<?php
 
 		$rand = FALSE; //no longer using the random method
-		$population = 7;
+		$population = 6;
 		srand( $population*rand(0,10000) );
 
 		$q = new WP_Query( array(
@@ -35,13 +48,18 @@
 		) );
 
 		$fixed_vals = array(
-			// dimension, top, left
-			array( 13,80,6 ),
-			array( 38,55,40 ),
-			array( 12,9,70 ),
-			array( 6,25,30 ),
-			array( 18,16,7 ),
-			array( 5,79,82 ),			
+			// dimension, left, top
+			array( 10, 10, 10 ), 
+			array( 30, 5, 40 ), 
+			array( 8, 60, 40 ), 
+			array( 12, 70, 5 ), 
+			array( 4, 60, 70 ), 
+			array( 5, 40, 3 ),
+				 
+			array( 8, 12, 30 ),
+			 	
+			array( 5, 12, 30 ), 	
+										
 		);
 
 		if ( $q->have_posts() ) :	
@@ -69,17 +87,15 @@
 	?>
 	
 
-	<article class="dream <?php echo 'dream' . $i . ' ' . $dream_template . ' ' . $light_or_dark; ?>" 
-	style="<?php  
-		echo arr_format_translate( $fixed_vals[ $i % count( $fixed_vals ) ] );  
-		// echo arr_format_size( $fixed_vals[ $i % count( $fixed_vals ) ] ); 
-	?>">		
+	<article class="dream <?php echo 'dream' . $i . ' ' . $dream_template . ' ' . $light_or_dark; ?>" <?php  echo arr_format_translate( $fixed_vals[ $i % count( $fixed_vals ) ] );  ?> 		
+	data-width="<?php echo arr_format_size( $fixed_vals[ $i % count( $fixed_vals ) ] ); ?>"
+	>		
 		
 		<div class="dream-background"></div><!--dream-background-->
 		
 		<div class="dream-inner">
 			
-			<a class="dream-link" href="#<?php echo $post->post_name; ?>" >
+			<a class="dream-link" href="#<?php echo $post->post_name; ?>">
 	
 				<div class="dream-drawing">
 				
@@ -92,8 +108,6 @@
 				</div>
 														
 				<div class="dream-hover">
-					<?php if ( $dream_number ) : ?><h4 class="dream-number hidden">Dream No. <?php echo $dream_number; ?></h4><?php endif; ?>
-					<h4 class="dream-title hidden"><?php the_title(); ?></h4>
 					<h4 class="excerpt italic"><?php echo $dream_teaser; ?></h4>						
 				</div>	
 				
@@ -191,22 +205,20 @@
 			if ( $q2->have_posts() ) :	
 				$j = 0;
 				
-				$n = $q2->found_posts;
+				$n = $q2->found_posts;			
+							
+					while ( $q2->have_posts() ) : 
+	
+						$q2->the_post(); ?>
+					
+						<article class="col-sm-4 archive-dream">
+							<h3><?php the_title(); ?></h3>
+						</article>
+							
+					<?php $j++; endwhile; ?>
+				<?php endif; ?>
+		<?php wp_reset_query(); ?>
 				
-				
-				
-				while ( $q2->have_posts() ) : 
-
-					$q2->the_post(); ?>
-				
-					<article class="col-sm-4 archive-dream">
-						<h3><?php the_title(); ?></h3>
-					</article>
-						
-				<?php $j++; endwhile; ?>
-			<?php endif; ?>
-	<?php wp_reset_query(); ?>
-			
 			
 						
 		</div>

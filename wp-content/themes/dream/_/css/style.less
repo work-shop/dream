@@ -35,6 +35,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 }
 
+.gradient-blue(){
+background: #f0f9ff;
+background: -moz-radial-gradient(center, ellipse cover,  #f0f9ff 0%, #e8f3ff 47%, #eaf7ff 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#f0f9ff), color-stop(47%,#e8f3ff), color-stop(100%,#eaf7ff));
+background: -webkit-radial-gradient(center, ellipse cover,  #f0f9ff 0%,#e8f3ff 47%,#eaf7ff 100%);
+background: -o-radial-gradient(center, ellipse cover,  #f0f9ff 0%,#e8f3ff 47%,#eaf7ff 100%);
+background: -ms-radial-gradient(center, ellipse cover,  #f0f9ff 0%,#e8f3ff 47%,#eaf7ff 100%);
+background: radial-gradient(ellipse at center,  #f0f9ff 0%,#e8f3ff 47%,#eaf7ff 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#eaf7ff',GradientType=1 );
+
+
+
+
+}
+
 .font-text(){
 	font-family: @font-family-text;	
 }
@@ -503,8 +518,8 @@ body.dream-active{
 	}
 	
 	.dream{
-		opacity: .1;
-		position: fixed;
+		opacity: 0;
+		//position: fixed;
 		
 		&.active{
 			opacity: 1;
@@ -518,24 +533,6 @@ body.dream-active{
 
 }
 
-@marker: 25%;
-
-#marker{	
-	display: none;
-	position: fixed;
-	top: @marker;
-	left: @marker;
-	width: 10px;
-	height: 10px;
-	margin-left: -5px;
-	margin-top: -5px;
-	background: red;
-	z-index: 111111;
-}
-
-
-
-
 
 @duration: 4s;
 
@@ -547,20 +544,19 @@ body.dream-active{
 	}
 	
 	.dream{
-		width: 250px;
-		min-height: 350px;
-		max-height: 350px;		
-		//height: 300px;
+		background: yellow;
+		min-width: 50px;
+		max-width: 300px;
 		padding: 0px;
 		position: absolute;		
-		.transition(all,@duration);
-		overflow: hidden;	
+		overflow: hidden;
+		.transition(all,@duration);					
 		
 		.dream-link{
 			text-decoration: none;
 		}
 	
-		.dream-drawing{
+		.dream-drawing{		
 			.transition(all,@duration);
 			min-width: 50px;
 			max-width: 300px;
@@ -573,14 +569,20 @@ body.dream-active{
 	
 			&:hover{
 				&+.dream-hover{
-					display: block;
+
 				}
 			}		
-	
 		}
 		
 		.dream-hover{
 			display: none;
+			position: relative;
+			top: 0;
+			
+			h4{
+				font-size: 24px;
+				text-align: center;
+			}
 		}
 		
 		.dream-inner{
@@ -601,9 +603,10 @@ body.dream-active{
 		
 		//ACTIVE DREAM
 		&.active{
-			width: 100%;
-			min-height: 300px;
-			height: auto;
+			width: 100% !important;
+			max-width: none;
+			//min-height: 300px;
+			height: auto !important;
 			max-height: none;		
 			top: 0 !important;
 			left: 0 !important;
@@ -624,11 +627,13 @@ body.dream-active{
 			
 			&.template-background{
 				.dream-drawing{
-					width: 100% !important;
-					height: 100% !important;
-					max-width: 100%;
+					width: 150% !important;
+					height: 150% !important;
+					max-width: none;
 					margin: 0px auto;	
-					position: absolute;				
+					position: absolute;
+					left: -25%;
+					top: -25%;				
 				}		
 			}		
 			
@@ -657,13 +662,15 @@ body.dream-active{
 
 
 
+
+
 .dream-header{
 	margin-top: 30px;
 	margin-bottom: 30px;
 	
 	h4{
 		margin-top: 0;
-		margin-bottom: 7px;
+		margin-bottom: 3px;
 	}
 	
 	hr{
@@ -673,12 +680,12 @@ body.dream-active{
 	}
 	
 	.dream-title{
-		margin: 45px 0 0px 0;
+		margin: 30px 0 0px 0;
 	}
 	
 	.dream-teaser{
-		max-width: 450px;
-		margin: 15px auto 45px auto;
+		max-width: 480px;
+		margin: 0px auto 45px auto;
 	}	
 		
 }
@@ -700,18 +707,21 @@ body.dream-active{
 		
 		h1{
 			margin: 0;
+			margin-bottom: .25em;
 			font-size: 42px;
 			font-weight: bold;
 		}
 		
 		h2{
-			margin: 0;
+			margin: 0;		
+			margin-bottom: .25em;		
 			font-size: 27px;
 			font-weight: bold;	
 		}
 		
 		h3{
 			margin: 0;
+			margin-bottom: .25em;		
 			font-size: 24px;
 			font-weight: bold;							
 		}
@@ -720,14 +730,19 @@ body.dream-active{
 			
 		}
 		
+		ul,ol{
+			margin-bottom: 60px;
+		}
+		
 		li{
 			font-size: 21px;
-			width: 80%;
+			
+			
 		}
 		
 		p{
-			font-size: 23px;
-			margin-bottom: 2.55em;	
+			font-size: 22px;
+			margin-bottom: 2.5em;	
 		}	
 		
 		a{
@@ -750,13 +765,27 @@ body.dream-active{
 		}
 		
 		hr{
-			border-top: 1px solid @dark;
+			border-top: 1px solid #777;
 			width: 33%;
 			margin: 90px auto;
 			
 			&.closing{
 				//margin-top: 60px;
 			}
+		}
+		
+		img{
+			width: 61%;
+			display: block;
+			margin-left: 30%;
+			
+		}
+		
+		.wp-caption-text{
+			text-align: right;
+			margin-right: 9%;
+			margin-top: 1em;
+			font-size: 14px;
 		}
 	}
 }
@@ -891,6 +920,15 @@ body.dreams-grid{
 
 
 
+/**** @ARCHIVE *****/
+
+#archive{
+
+	background: #eafaff;
+	.gradient-blue();
+	padding-top: 60px;
+}
+
 /**** @DREAM-SINGLES *****/
 
 .single{
@@ -933,6 +971,10 @@ body.dreams-grid{
 			.dream-inner{
 				*{
 					color: #eee;
+				}
+				
+				hr{
+					border-color: #eee;
 				}
 			}
 		}	
